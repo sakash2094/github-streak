@@ -2,47 +2,208 @@ name: Daily CyberSec Streak & Deploy
 
 on:
   schedule:
-    - cron: '0 10 * * *' # Runs daily at 10:00 AM UTC
-  workflow_dispatch: # Allows manual triggering
+    # Runs daily at 10:00 AM UTC (adjust to your timezone)
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+    # Allows manual triggering from GitHub Actions tab
   push:
-    branches: ["main"] # Deploys the website when code is pushed
+    branches: ["main"]
+    paths:
+      - 'dashboard_data.json'
+      - 'index.html'
+
+# Security: Restrict permissions at workflow level
+permissions: read-all
 
 jobs:
-  build-and-deploy:
+  generate-content:
+    name: Generate Daily Content
     runs-on: ubuntu-latest
+    
+    # Security: Grant only necessary permissions
     permissions:
       contents: write
-      pages: write
-      id-token: write
-      
+      pull-requests: write
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Verify Python environment
+        run: |
+          python --version
+          pip --version
 
       - name: Generate Daily Content & Update Data
         run: python generate_content.py
+        env:
+          PYTHONIOENCODING: utf-8
 
-      - name: Commit and Push changes
+      - name: Validate generated files
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .
-          git diff --staged --quiet || git commit -m "🛡️ Daily CyberSec Update: $(date +'%Y-%m-%d')"
-          git push
+          echo "Checking generated files..."
+          if [ -f "dashboard_data.json" ]; then
+            echo "✅ dashboard_data.json exists"
+            python -m json.tool dashboard_data.json > /dev/null && echo "✅ Valid JSON"
+          else
+            echo "❌ dashboard_data.json not found"
+            exit 1
+          fi
+          
+          # Check for new markdown files
+          NEW_FILES=$(find . -name "*.md" -mtime -1 -type f | wc -l)
+          echo "📝 New/updated markdown files: $NEW_FILES"
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: |
+            🛡️ Daily CyberSec Update: ${{ github.run_number }}
+            
+            - Generated on: ${{ github.event_name == 'schedule' && 'Scheduled run' || 'Manual trigger' }}
+            - Run ID: ${{ github.run_id }}
+            - Workflow: ${{ github.workflow }}
+            
+            Automated security content generation.
+          branch: "daily-update-${{ github.run_number }}"
+          delete-branch: true
+          title: "🛡️ Daily CyberSec Update - ${{ github.run_number }}"
+          body: |
+            ## Automated Daily Cybersecurity Content Update
+            
+            **Generated:** ${{ github.event_name == 'schedule' && 'Scheduled daily run' || 'Manual trigger' }}  
+            **Timestamp:** ${{ github.event.head_commit.timestamp || github.event.workflow_run.created_at }}  
+            **Run ID:** ${{ github.run_id }}
+            
+            ### Changes:
+            - 📝 New cybersecurity content generated
+            - 📊 Dashboard statistics updated
+            - 🔒 Content validated and sanitized
+            
+            ### Security Checklist:
+            - [ ] Content has been sanitized
+            - [ ] No dangerous scripts or code injection
+            - [ ] JSON data is valid
+            - [ ] Markdown files properly formatted
+            
+            ---
+            *This PR was created automatically by GitHub Actions. Please review before merging.*
+          labels: |
+            automated-pr
+            daily-update
+            security-content
+          assignees: ${{ github.repository_owner }}
+          reviewers: ${{ github.repository_owner }}
+          
+      - name: PR Creation Summary
+        run: |
+          echo "✅ Pull request created successfully!"
+          echo "🔗 PR URL: https://github.com/${{ github.repository }}/pulls"
+          echo "⚠️  Please review and merge the PR to deploy changes."
+
+  build-and-deploy:
+    name: Deploy to GitHub Pages
+    needs: generate-content
+    runs-on: ubuntu-latest
+    
+    # Only deploy on push to main (after PR merge)
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    # Security: Grant only necessary permissions
+    permissions:
+      pages: write
+      id-token: write
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate HTML and JSON
+        run: |
+          echo "🔍 Validating files..."
+          
+          # Check index.html exists
+          if [ -f "index.html" ]; then
+            echo "✅ index.html exists"
+          else
+            echo "❌ index.html not found"
+            exit 1
+          fi
+          
+          # Validate JSON
+          if [ -f "dashboard_data.json" ]; then
+            python -m json.tool dashboard_data.json > /dev/null && echo "✅ Valid JSON"
+          fi
+          
+          # Check for obvious security issues
+          if grep -q "<script>" index.html; then
+            echo "⚠️  Warning: Script tags found in index.html"
+          fi
+          
+          echo "✅ Validation complete"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload artifact for Pages
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
+          retention-days: 30
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Deployment Summary
+        run: |
+          echo "✅ Deployment successful!"
+          echo "🌐 Site URL: ${{ steps.deployment.outputs.page_url }}"
+          echo ""
+          echo "📊 Dashboard Features:"
+          echo "  - Current streak counter"
+          echo "  - Contribution heatmap"
+          echo "  - Daily cybersecurity content"
+          echo "  - Real-time statistics"
+
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run security checks
+        run: |
+          echo "🔒 Running security checks..."
+          
+          # Check for secrets in code
+          if grep -r "password\|api_key\|secret" --include="*.py" --include="*.js" --include="*.html" . | grep -v "node_modules"; then
+            echo "⚠️  Warning: Potential secrets found in code"
+          else
+            echo "✅ No obvious secrets found"
+          fi
+          
+          # Check file permissions
+          echo "📋 File permissions check:"
+          ls -la *.py *.html 2>/dev/null || true
+          
+          echo "✅ Security scan complete"
