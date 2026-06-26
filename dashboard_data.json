@@ -3,9 +3,9 @@
     "2026-06-26"
   ],
   "latest_content": {
-    "title": "Multi-Factor Authentication",
+    "title": "Password Hygiene",
     "category": "tips",
-    "content": "Enable MFA/2FA on all critical accounts. Use an Authenticator app or hardware key (**YubiKey**) instead of SMS, which is vulnerable to SIM swapping.",
+    "content": "Never reuse passwords across different sites. Use a password manager like **Bitwarden** or **1Password** to generate and store complex, unique passwords for every account.",
     "date": "2026-06-26"
   },
   "current_streak": 1,
