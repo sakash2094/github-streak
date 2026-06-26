@@ -1,14 +1,15 @@
 {
+  "current_streak": 1,
   "dates": [
     "2026-06-26"
   ],
+  "last_updated": "2026-06-26T21:19:24.488763",
   "latest_content": {
-    "title": "Password Hygiene",
-    "category": "tips",
-    "content": "Never reuse passwords across different sites. Use a password manager like **Bitwarden** or **1Password** to generate and store complex, unique passwords for every account.",
-    "date": "2026-06-26"
+    "category": "vulnerabilities",
+    "content": "**What it is:** Happens when an application includes untrusted data in web pages without proper escaping, allowing attackers to inject malicious JavaScript.\n\n**Impact:** Session hijacking, credential theft, website defacement, malware distribution, and unauthorized actions on behalf of users.\n\n**Prevention:** Sanitize and escape all user input before rendering. Use Content Security Policy (CSP) headers. Implement HTTP-only and Secure flags on cookies. Use modern frameworks that automatically escape output (React, Vue, Angular).",
+    "date": "2026-06-26",
+    "title": "Cross-Site Scripting (XSS)"
   },
-  "current_streak": 1,
   "longest_streak": 1,
   "total_contributions": 1
 }
