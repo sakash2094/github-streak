@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
-Daily Cybersecurity Content Generator
-Securely generates daily security tips, vulnerability spotlights, and tool guides.
-Includes input sanitization and output validation.
+CyberSec Daily Portfolio Generator (Phase 1 - Professional Edition)
+Themed daily content with organized folder structure and auto-updating README.
 """
 
 import json
@@ -11,226 +10,227 @@ import re
 import datetime
 import random
 import html
+import urllib.request
 
-# --- 1. SECURITY SANITIZATION FUNCTIONS ---
-
+# --- 1. SECURITY SANITIZATION ---
 def sanitize_text(text):
-    """
-    Remove potentially dangerous content from text.
-    Prevents XSS, path traversal, and injection attacks.
-    """
-    if not text or not isinstance(text, str):
+    if not text or not isinstance(text, str): 
         return ""
-    
-    # Remove null bytes
     text = text.replace('\x00', '')
-    
-    # Remove script tags and event handlers
     text = re.sub(r'<script[^>]*>.*?</script>', '', text, flags=re.IGNORECASE | re.DOTALL)
-    text = re.sub(r'<iframe[^>]*>.*?</iframe>', '', text, flags=re.IGNORECASE | re.DOTALL)
-    text = re.sub(r'<object[^>]*>.*?</object>', '', text, flags=re.IGNORECASE | re.DOTALL)
-    text = re.sub(r'<embed[^>]*>', '', text, flags=re.IGNORECASE)
-    
-    # Remove javascript: and data: URIs
     text = re.sub(r'javascript:', '', text, flags=re.IGNORECASE)
-    text = re.sub(r'data:text/html', '', text, flags=re.IGNORECASE)
-    text = re.sub(r'vbscript:', '', text, flags=re.IGNORECASE)
-    
-    # Remove event handlers (onclick, onerror, onload, etc.)
     text = re.sub(r'\s*on\w+\s*=\s*["\'][^"\']*["\']', '', text, flags=re.IGNORECASE)
-    text = re.sub(r'\s*on\w+\s*=[^\s>]+', '', text, flags=re.IGNORECASE)
-    
-    # Remove path traversal attempts
     text = re.sub(r'\.\./', '', text)
-    text = re.sub(r'\.\.\\', '', text)
-    
-    # Limit length to prevent DoS
-    if len(text) > 5000:
-        text = text[:5000]
-    
-    return text.strip()
+    return text.strip()[:5000]
 
 def validate_filename(name):
-    """Ensure filename is safe and doesn't contain path traversal or special chars."""
-    if not name:
+    if not name: 
         return "untitled"
-    
-    # Remove dangerous characters
     name = re.sub(r'[<>:"/\\|?*]', '', name)
     name = re.sub(r'\.\./', '', name)
-    name = re.sub(r'\.\.\\', '', name)
-    name = name.replace('\x00', '')
-    
-    # Limit length
-    if len(name) > 100:
+    if len(name) > 100: 
         name = name[:100]
-    
-    # Convert to lowercase and replace spaces with hyphens
-    name = name.lower().strip().replace(' ', '-')
-    
-    # Remove consecutive hyphens
-    name = re.sub(r'-+', '-', name)
-    
-    return name if name else "content"
+    return name.lower().strip().replace(' ', '-')
 
-def escape_html(text):
-    """Properly escape HTML special characters."""
-    if not text:
-        return ""
-    return html.escape(str(text), quote=True)
+# --- 2. THEMED DAY SCHEDULING ---
+def get_today_theme():
+    """Returns the theme for today based on day of week."""
+    day_of_week = datetime.datetime.now().weekday()  # 0=Monday, 6=Sunday
+    
+    themes = {
+        0: {"name": "Networking", "folder": "04-Networking", "icon": "🌐", "category": "networking"},
+        1: {"name": "Web Security", "folder": "05-Web-Security", "icon": "🕸️", "category": "web-security"},
+        2: {"name": "Malware Analysis", "folder": "06-Malware-Analysis", "icon": "🦠", "category": "malware"},
+        3: {"name": "Digital Forensics", "folder": "07-Forensics", "icon": "🔍", "category": "forensics"},
+        4: {"name": "Python Automation", "folder": "08-Python", "icon": "🐍", "category": "python"},
+        5: {"name": "CTF Challenges", "folder": "09-CTF", "icon": "🏆", "category": "ctf"},
+        6: {"name": "Weekly News", "folder": "10-News", "icon": "📰", "category": "news"}
+    }
+    
+    return themes[day_of_week]
 
-# --- 2. CURATED CYBERSECURITY CONTENT DATABASE ---
-# All content is pre-validated and sanitized
-
-TIPS = [
+# --- 3. EXPANDED CONTENT DATABASE ---
+NETWORKING = [
     {
-        "title": "Password Hygiene Best Practices",
-        "content": "Never reuse passwords across different sites. Use a password manager like **Bitwarden** or **1Password** to generate and store complex, unique passwords (at least 16 characters) for every account. Enable breach monitoring to get alerts if your credentials appear in data breaches."
+        "title": "DNS Cache Poisoning", 
+        "content": "**What it is:** Attackers inject fake DNS records into a resolver's cache, redirecting users to malicious sites.\n\n**Attack Process:**\n1. Identify target DNS server\n2. Send forged DNS responses with incorrect IP mappings\n3. Wait for cache to be poisoned\n4. Victims are redirected to attacker-controlled sites\n\n**Mitigation:** Use DNSSEC, disable open recursion, implement source port randomization.\n\n**Commands:**\n```bash\n# Check DNS cache\nipconfig /displaydns  # Windows\nsudo systemd-resolve --statistics  # Linux\n\n# Flush DNS cache\nipconfig /flushdns  # Windows\nsudo systemd-resolve --flush-caches  # Linux\n```"
     },
     {
-        "title": "Phishing Attack Recognition",
-        "content": "Always verify the sender's email address carefully and hover over links before clicking. Attackers often use urgent language like 'Account Suspended' or 'Immediate Action Required' to bypass critical thinking. Check for spelling errors, mismatched URLs, and suspicious sender domains."
+        "title": "TCP/IP Protocol Stack", 
+        "content": "**Overview:** The foundation of internet communication.\n\n**Layers:**\n- **Application:** HTTP, FTP, SMTP\n- **Transport:** TCP (reliable), UDP (fast)\n- **Internet:** IP addressing and routing\n- **Network Access:** Ethernet, Wi-Fi\n\n**Key Commands:**\n```bash\n# View routing table\nnetstat -r\n\n# Trace packet path\ntraceroute example.com\n\n# Capture packets\ntcpdump -i eth0\n\n# Check open ports\nnetstat -tuln\n```"
     },
     {
-        "title": "Multi-Factor Authentication (MFA)",
-        "content": "Enable MFA/2FA on all critical accounts (email, banking, GitHub). Use an authenticator app (**Google Authenticator**, **Authy**, **Microsoft Authenticator**) or hardware security key (**YubiKey**) instead of SMS, which is vulnerable to SIM swapping attacks."
-    },
-    {
-        "title": "Software Update Management",
-        "content": "Enable automatic updates for your operating system, browser, and all applications. Updates frequently contain patches for zero-day vulnerabilities that hackers actively exploit. Don't delay updates - many breaches exploit known vulnerabilities that were patched months ago."
-    },
-    {
-        "title": "Secure Wi-Fi Practices",
-        "content": "Use WPA3 encryption on your home router (or WPA2 if WPA3 unavailable). Change default router credentials immediately. Create a separate guest network for visitors. Never use public Wi-Fi for sensitive transactions without a VPN. Disable WPS as it has known security flaws."
-    },
-    {
-        "title": "Data Backup Strategy",
-        "content": "Follow the **3-2-1 backup rule**: Keep 3 copies of important data, on 2 different media types, with 1 copy stored offsite (cloud). Test your backups regularly by restoring files. Use encrypted backups and enable versioning to protect against ransomware."
+        "title": "Network Segmentation", 
+        "content": "**What it is:** Dividing a network into smaller subnets to limit lateral movement.\n\n**Benefits:**\n- Contains breaches to single segment\n- Reduces attack surface\n- Improves performance\n- Simplifies access control\n\n**Implementation:** Use VLANs, firewalls, and microsegmentation. Apply Zero Trust principles.\n\n**Example:**\n```bash\n# Create VLAN\nvconfig add eth0 10\n\n# Assign IP\nifconfig eth0.10 192.168.10.1/24 up\n```"
     }
 ]
 
-VULNS = [
+WEB_SECURITY = [
     {
-        "title": "SQL Injection (SQLi)",
-        "content": "**What it is:** Occurs when untrusted user input is directly concatenated into database queries without proper sanitization.\n\n**Impact:** Attackers can read, modify, or delete database contents, execute administrative operations, or even issue commands to the operating system.\n\n**Prevention:** Always use parameterized queries (prepared statements) and ORMs. Never concatenate user input directly into SQL queries. Apply the principle of least privilege to database accounts. Use stored procedures with parameterized inputs."
+        "title": "Cross-Site Request Forgery (CSRF)", 
+        "content": "**What it is:** Attacker tricks authenticated user into performing unwanted actions.\n\n**Attack Example:**\n```html\n<img src=\"http://bank.com/transfer?to=attacker&amount=1000\">\n```\n\n**Prevention:**\n- Use anti-CSRF tokens\n- Implement SameSite cookie attribute\n- Verify Origin/Referer headers\n- Require re-authentication for sensitive actions\n\n**Testing:**\n```bash\n# Check for CSRF tokens\ncurl -X POST https://target.com/transfer \\\n  -H \"Cookie: session=abc123\" \\\n  -d \"to=attacker&amount=1000\"\n```"
     },
     {
-        "title": "Cross-Site Scripting (XSS)",
-        "content": "**What it is:** Happens when an application includes untrusted data in web pages without proper escaping, allowing attackers to inject malicious JavaScript.\n\n**Impact:** Session hijacking, credential theft, website defacement, malware distribution, and unauthorized actions on behalf of users.\n\n**Prevention:** Sanitize and escape all user input before rendering. Use Content Security Policy (CSP) headers. Implement HTTP-only and Secure flags on cookies. Use modern frameworks that automatically escape output (React, Vue, Angular)."
+        "title": "HTTP Security Headers", 
+        "content": "**Essential Headers:**\n\n```http\nContent-Security-Policy: default-src 'self'\nX-Frame-Options: DENY\nX-Content-Type-Options: nosniff\nStrict-Transport-Security: max-age=31536000\nX-XSS-Protection: 1; mode=block\nReferrer-Policy: strict-origin-when-cross-origin\n```\n\n**Implementation (Nginx):**\n```nginx\nadd_header Content-Security-Policy \"default-src 'self'\";\nadd_header X-Frame-Options \"DENY\";\nadd_header X-Content-Type-Options \"nosniff\";\n```"
     },
     {
-        "title": "Broken Authentication",
-        "content": "**What it is:** Flaws in authentication and session management that allow attackers to compromise passwords, keys, or session tokens.\n\n**Impact:** Account takeover, unauthorized access to sensitive data, privilege escalation.\n\n**Prevention:** Implement multi-factor authentication. Enforce strong password policies (minimum 12 characters, complexity requirements). Implement account lockout after 5 failed attempts. Use secure session management with HTTP-only, Secure, and SameSite cookies. Rotate session IDs after login."
-    },
-    {
-        "title": "Sensitive Data Exposure",
-        "content": "**What it is:** Failure to protect sensitive data such as financial records, healthcare information, and credentials.\n\n**Impact:** Identity theft, credit card fraud, regulatory fines (GDPR, HIPAA), reputational damage.\n\n**Prevention:** Encrypt all sensitive data at rest (AES-256) and in transit (TLS 1.3). Use strong hashing algorithms like **bcrypt**, **scrypt**, or **Argon2** for passwords. Implement proper key management. Classify data and apply controls accordingly. Never store sensitive data in logs."
-    },
-    {
-        "title": "Security Misconfiguration",
-        "content": "**What it is:** Insecure default configurations, incomplete configurations, open cloud storage, misconfigured HTTP headers, and verbose error messages.\n\n**Impact:** Unauthorized access to systems, data leakage, complete system compromise.\n\n**Prevention:** Implement a repeatable hardening process. Remove or disable unnecessary features, frameworks, and services. Review and update configurations regularly. Automate configuration verification. Disable detailed error messages in production. Use security scanning tools."
-    },
-    {
-        "title": "Insecure Direct Object References (IDOR)",
-        "content": "**What it is:** Occurs when an application provides direct access to objects (database records, files) based on user-supplied input without authorization checks.\n\n**Impact:** Unauthorized access to other users' data, privacy violations, data theft.\n\n**Prevention:** Always verify that the logged-in user owns or has permission to access the requested resource. Use indirect reference maps (randomized IDs). Implement proper access control checks on every request. Never expose internal identifiers directly in URLs."
+        "title": "SQL Injection Deep Dive", 
+        "content": "**Types:**\n1. **In-band:** UNION-based, Error-based\n2. **Blind:** Boolean-based, Time-based\n3. **Out-of-band:** DNS/HTTP exfiltration\n\n**Detection:**\n```sql\n' OR '1'='1\n' UNION SELECT NULL--\n' AND SLEEP(5)--\n```\n\n**Prevention:**\n- Use parameterized queries\n- Implement input validation\n- Apply least privilege to DB accounts\n- Use ORM frameworks\n\n**Example (Python):**\n```python\n# ❌ VULNERABLE\ncursor.execute(f\"SELECT * FROM users WHERE id = {user_id}\")\n\n# ✅ SAFE\ncursor.execute(\"SELECT * FROM users WHERE id = %s\", (user_id,))\n```"
     }
 ]
 
-TOOLS = [
+MALWARE = [
     {
-        "title": "Nmap (Network Mapper)",
-        "content": "**Purpose:** Industry-standard network discovery and security auditing tool.\n\n**Key Features:**\n- Host discovery and port scanning\n- Service and version detection\n- Operating system fingerprinting\n- Scriptable interaction (NSE scripts)\n- Flexible output options\n\n**Essential Commands:**\n```bash\n# Basic scan\nnmap 192.168.1.1\n\n# Aggressive scan with version detection\nnmap -A -sV 192.168.1.1\n\n# Scan specific ports\nnmap -p 80,443,8080 target.com\n\n# Stealth SYN scan\nsudo nmap -sS target.com\n\n# Save output\nnmap -oN results.txt target.com\n```\n\n**Learn More:** [nmap.org](https://nmap.org)"
+        "title": "Ransomware Analysis Basics", 
+        "content": "**Static Analysis:**\n```bash\n# Check file type\nfile malware.exe\n\n# Extract strings\nstrings malware.exe | grep -i \"bitcoin\"\n\n# Check imports\nobjdump -p malware.exe | grep DLL\n\n# Calculate hash\nsha256sum malware.exe\n```\n\n**Dynamic Analysis:**\n- Run in isolated VM (REMnux, FLARE VM)\n- Monitor network traffic with Wireshark\n- Track file system changes with Process Monitor\n- Analyze registry modifications\n\n**Indicators:** Encryption routines, C2 communication, ransom notes"
     },
     {
-        "title": "Wireshark (Network Protocol Analyzer)",
-        "content": "**Purpose:** World's foremost network protocol analyzer for capturing and interactively browsing network traffic.\n\n**Key Features:**\n- Deep inspection of hundreds of protocols\n- Live capture and offline analysis\n- Rich VoIP analysis\n- Decryption support for many protocols\n- Powerful display filters\n\n**Essential Commands:**\n```bash\n# Capture on specific interface\nsudo wireshark -i eth0\n\n# Command-line capture\ntshark -i eth0 -w capture.pcap\n\n# Filter by IP\ntshark -r capture.pcap -Y \"ip.addr == 192.168.1.1\"\n\n# Filter by protocol\ntshark -r capture.pcap -Y \"http or dns\"\n```\n\n**Learn More:** [wireshark.org](https://www.wireshark.org)"
+        "title": "YARA Rules for Malware Detection", 
+        "content": "**What is YARA:** Pattern matching tool for malware identification.\n\n**Example Rule:**\n```yara\nrule Suspicious_PowerShell {\n    meta:\n        description = \"Detects encoded PowerShell\"\n        author = \"CyberSec Daily\"\n    strings:\n        $ps1 = \"powershell\" nocase\n        $encoded = \"-enc\" nocase\n        $b64 = /[A-Za-z0-9+\\/]{50,}={0,2}/\n    condition:\n        $ps1 and $encoded and $b64\n}\n```\n\n**Usage:**\n```bash\nyara rule.yar suspicious_file.exe\n\n# Scan directory\nyara -r rule.yar /path/to/files\n```"
     },
     {
-        "title": "Burp Suite (Web Security Testing)",
-        "content": "**Purpose:** Integrated platform for performing security testing of web applications.\n\n**Key Features:**\n- Intercepting proxy to examine/modify traffic\n- Automated vulnerability scanning (Professional)\n- Manual testing tools (Repeater, Intruder, Decoder)\n- Extensible with BApp Store plugins\n- Collaboration features\n\n**Getting Started:**\n```bash\n# Configure browser proxy to 127.0.0.1:8080\n# Install Burp CA certificate for HTTPS interception\n# Visit http://burpsuite in browser to download cert\n\n# Common workflow:\n# 1. Intercept requests in Proxy tab\n# 2. Send to Repeater for manual testing\n# 3. Use Intruder for automated attacks\n# 4. Run Scanner for automated vuln detection\n```\n\n**Learn More:** [portswigger.net/burp](https://portswigger.net/burp)"
-    },
-    {
-        "title": "Metasploit Framework",
-        "content": "**Purpose:** Most popular penetration testing framework with extensive exploit database.\n\n**Key Features:**\n- Large database of exploits and payloads\n- Modular architecture\n- Automated exploitation\n- Post-exploitation modules\n- Integration with Nmap, Nessus\n\n**Essential Commands:**\n```bash\n# Start Metasploit console\nmsfconsole\n\n# Search for exploits\nmsf6 > search type:exploit platform:windows\n\n# Use an exploit\nmsf6 > use exploit/windows/smb/ms17_010_eternalblue\n\n# Set options\nmsf6 exploit(ms17_010_eternalblue) > set RHOSTS 192.168.1.100\nmsf6 exploit(ms17_010_eternalblue) > set LHOST 192.168.1.50\n\n# Exploit\nmsf6 exploit(ms17_010_eternalblue) > exploit\n```\n\n**Learn More:** [metasploit.com](https://www.metasploit.com)"
-    },
-    {
-        "title": "John the Ripper (Password Cracker)",
-        "content": "**Purpose:** Fast, open-source password cracker for detecting weak passwords.\n\n**Key Features:**\n- Supports hundreds of hash types\n- Dictionary, brute force, and rule-based attacks\n- Auto-detection of hash types\n- Distributed cracking support\n- Highly optimized performance\n\n**Essential Commands:**\n```bash\n# Dictionary attack\njohn --wordlist=/usr/share/wordlists/rockyou.txt hashes.txt\n\n# Show cracked passwords\njohn --show hash.txt\n\n# Brute force with pattern\njohn --incremental hashes.txt\n\n# Generate password hash for testing\nopenssl passwd -1 test123 > hash.txt\n\n# Benchmark performance\njohn --test\n```\n\n**Learn More:** [openwall.com/john](https://www.openwall.com/john)"
-    },
-    {
-        "title": "SQLMap (SQL Injection Tool)",
-        "content": "**Purpose:** Automated tool for detecting and exploiting SQL injection flaws.\n\n**Key Features:**\n- Automatic detection of SQL injection types\n- Database fingerprinting\n- Data extraction from databases\n- OS command execution (with proper privileges)\n- Supports MySQL, PostgreSQL, Oracle, MS SQL\n\n**Essential Commands:**\n```bash\n# Basic test for SQL injection\nsqlmap -u \"http://example.com/page?id=1\"\n\n# Enumerate databases\nsqlmap -u \"http://example.com/page?id=1\" --dbs\n\n# Enumerate tables in specific database\nsqlmap -u \"http://example.com/page?id=1\" -D dbname --tables\n\n# Dump specific table\nsqlmap -u \"http://example.com/page?id=1\" -D dbname -T users --dump\n\n# OS shell (advanced)\nsqlmap -u \"http://example.com/page?id=1\" --os-shell\n```\n\n**Learn More:** [sqlmap.org](http://sqlmap.org)"
+        "title": "Memory Forensics with Volatility", 
+        "content": "**Basic Commands:**\n```bash\n# Identify OS profile\nvolatility -f memory.dmp imageinfo\n\n# List processes\nvolatility -f memory.dmp --profile=Win10x64 pslist\n\n# Check network connections\nvolatility -f memory.dmp --profile=Win10x64 netscan\n\n# Dump suspicious process\nvolatility -f memory.dmp --profile=Win10x64 procdump -p 1234 -D output/\n\n# Scan for malware\nvolatility -f memory.dmp --profile=Win10x64 malfind\n```\n\n**What to look for:** Injected code, hidden processes, unusual network connections"
     }
 ]
 
-# --- 3. CONTENT GENERATION LOGIC ---
+FORENSICS = [
+    {
+        "title": "File Carving with Foremost", 
+        "content": "**What it is:** Extracting files from disk images based on headers/footers.\n\n**Usage:**\n```bash\n# Carve all file types\nforemost -i disk.img -o output/\n\n# Carve specific types\nforemost -i disk.img -t jpg,pdf,doc -o output/\n\n# Verbose mode\nforemost -i disk.img -v -o output/\n```\n\n**Supported formats:** jpg, gif, png, bmp, pdf, doc, zip, exe, and 20+ more\n\n**Alternative Tools:**\n- PhotoRec (more file types)\n- Scalpel (faster)\n- Autopsy (GUI)"
+    },
+    {
+        "title": "Timeline Analysis", 
+        "content": "**Creating a Timeline:**\n```bash\n# Extract file system metadata\nfls -r -m C:/ disk.img > bodyfile\n\n# Create timeline\nmactime -b bodyfile -y 2024-01-01 > timeline.csv\n\n# Filter by date range\ngrep \"2024-01-15\" timeline.csv\n\n# View in text format\nmactime -b bodyfile -d\n```\n\n**What to analyze:**\n- File creation/modification times\n- Registry key changes\n- Log file timestamps\n- Browser history entries"
+    },
+    {
+        "title": "Log Analysis Essentials", 
+        "content": "**Windows Event Logs:**\n```powershell\n# Failed logons\nGet-WinEvent -FilterHashtable @{LogName='Security';Id=4625}\n\n# Privilege escalation\nGet-WinEvent -FilterHashtable @{LogName='Security';Id=4672}\n\n# Process creation\nGet-WinEvent -FilterHashtable @{LogName='Security';Id=4688}\n```\n\n**Linux Logs:**\n```bash\n# Search auth logs\ngrep \"Failed password\" /var/log/auth.log\n\n# Find sudo usage\ngrep sudo /var/log/auth.log\n\n# Check SSH logins\ngrep \"Accepted\" /var/log/auth.log\n\n# View syslog\ntail -f /var/log/syslog\n```"
+    }
+]
 
-def select_daily_content():
-    """Randomly select content category and item."""
-    categories = {
-        'tips': TIPS,
-        'vulnerabilities': VULNS,
-        'tools': TOOLS
+PYTHON = [
+    {
+        "title": "Port Scanner in Python", 
+        "content": "**Simple Port Scanner:**\n```python\nimport socket\n\ndef scan_port(host, port):\n    try:\n        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n        sock.settimeout(1)\n        result = sock.connect_ex((host, port))\n        sock.close()\n        return result == 0\n    except:\n        return False\n\n# Scan common ports\nports = [21, 22, 23, 80, 443, 3389]\nfor port in ports:\n    if scan_port('192.168.1.1', port):\n        print(f'Port {port}: OPEN')\n```\n\n**Usage:** `python port_scanner.py`"
+    },
+    {
+        "title": "Network Packet Sniffer", 
+        "content": "**Basic Packet Capture:**\n```python\nfrom scapy.all import *\n\ndef packet_callback(packet):\n    if packet.haslayer(TCP):\n        print(f\"{packet[IP].src} -> {packet[IP].dst}:{packet[TCP].dport}\")\n\n# Capture 100 packets\nsniff(prn=packet_callback, count=100)\n\n# Save to file\nsniff(count=100).wrpcap('capture.pcap')\n```\n\n**Requires:** `pip install scapy` and root/admin privileges\n\n**Advanced:**\n```python\n# Filter HTTP traffic\nsniff(filter=\"tcp port 80\", prn=packet_callback, count=50)\n```"
+    },
+    {
+        "title": "Hash Cracker with Dictionary", 
+        "content": "**MD5 Cracker:**\n```python\nimport hashlib\n\ndef crack_md5(hash_to_crack, wordlist):\n    with open(wordlist, 'r') as f:\n        for word in f:\n            word = word.strip()\n            word_hash = hashlib.md5(word.encode()).hexdigest()\n            if word_hash == hash_to_crack:\n                return word\n    return None\n\n# Usage\nresult = crack_md5('5f4dcc3b5aa765d61d8327deb882cf99', 'rockyou.txt')\nprint(f'Password: {result}')  # Output: password\n```\n\n**Supports:** MD5, SHA1, SHA256 (change hashlib function)"
+    }
+]
+
+CTF = [
+    {
+        "title": "CTF Enumeration Checklist", 
+        "content": "**Web Challenges:**\n- [ ] Check robots.txt\n- [ ] View page source\n- [ ] Inspect HTTP headers\n- [ ] Check for hidden directories (/admin, /backup)\n- [ ] Test for SQLi, XSS, LFI\n- [ ] Check cookies and local storage\n- [ ] Use Dirb/Dirbuster/Gobuster\n\n**Binary Challenges:**\n- [ ] Run `strings` command\n- [ ] Check with `file` command\n- [ ] Open in Ghidra/IDA\n- [ ] Look for hardcoded flags\n- [ ] Check for buffer overflows\n\n**Crypto Challenges:**\n- [ ] Identify encoding (Base64, Hex, ROT13)\n- [ ] Check for weak algorithms\n- [ ] Look for padding oracle attacks"
+    },
+    {
+        "title": "Base64 Encoding/Decoding", 
+        "content": "**Common in CTFs:**\n\n```bash\n# Encode\necho \"flag{secret}\" | base64\n\n# Decode\necho \"ZmxhZ3tzZWNyZXR9\" | base64 -d\n\n# Multiple encodings\necho \"flag{nested}\" | base64 | base64 | base64\n\n# Decode multiple times\ncat encoded.txt | base64 -d | base64 -d | base64 -d\n```\n\n**Python:**\n```python\nimport base64\n\n# Encode\nencoded = base64.b64encode(b\"flag{secret}\")\n\n# Decode\ndecoded = base64.b64decode(\"ZmxhZ3tzZWNyZXR9\")\n```"
+    },
+    {
+        "title": "Nmap for CTFs", 
+        "content": "**Essential Scans:**\n\n```bash\n# Quick scan\nnmap -F 192.168.1.1\n\n# Service version detection\nnmap -sV 192.168.1.1\n\n# Aggressive scan\nnmap -A 192.168.1.1\n\n# All ports\nnmap -p- 192.168.1.1\n\n# UDP scan\nnmap -sU 192.168.1.1\n\n# Script scan\nnmap -sC 192.168.1.1\n\n# Vulnerability scan\nnmap --script vuln 192.168.1.1\n\n# Save output\nnmap -oN scan.txt 192.168.1.1\n```"
+    }
+]
+
+NEWS = [
+    {
+        "title": "Latest CVE Highlights", 
+        "content": "**This Week's Critical Vulnerabilities:**\n\n*Note: This will be auto-populated from GitHub Advisories API*\n\nCheck the `02-Vulnerabilities` folder for detailed analysis of:\n- Recent CVEs\n- Exploit availability\n- Mitigation strategies\n\n**Stay Updated:**\n- Follow CISA Known Exploited Vulnerabilities catalog\n- Monitor GitHub Security Advisories\n- Subscribe to vendor security bulletins"
+    }
+]
+
+# --- 4. FETCH LIVE ADVISORIES ---
+def fetch_live_advisories():
+    """Fetches real vulnerabilities from GitHub Security Advisories API."""
+    try:
+        url = "https://api.github.com/advisories?per_page=3&type=reviewed"
+        req = urllib.request.Request(url, headers={
+            'User-Agent': 'Mozilla/5.0', 
+            'Accept': 'application/vnd.github+json'
+        })
+        with urllib.request.urlopen(req, timeout=10) as response:
+            data = json.loads(response.read().decode())
+            live_vulns = []
+            for adv in data:
+                severity = adv.get('severity', 'unknown').upper()
+                summary = sanitize_text(adv.get('summary', 'Security Advisory'))
+                desc = sanitize_text(adv.get('description', 'No description available.')[:500])
+                
+                live_vulns.append({
+                    "title": f"[LIVE] {summary[:80]}",
+                    "content": f"**Severity:** {severity}\n\n**Description:** {desc}\n\n**Source:** GitHub Security Advisories\n**Published:** {adv.get('published_at', 'Recently')}\n\n**CVE:** {adv.get('cve_id', 'N/A')}"
+                })
+            print(f"✅ Successfully fetched {len(live_vulns)} live advisories!")
+            return live_vulns
+    except Exception as e:
+        print(f"⚠️ API fetch failed ({e}). Using local database.")
+        return []
+
+# --- 5. MAIN GENERATION LOGIC ---
+def get_content_for_theme(theme):
+    """Returns appropriate content based on today's theme."""
+    category = theme["category"]
+    
+    content_map = {
+        "networking": NETWORKING,
+        "web-security": WEB_SECURITY,
+        "malware": MALWARE,
+        "forensics": FORENSICS,
+        "python": PYTHON,
+        "ctf": CTF,
+        "news": NEWS
     }
     
-    # Rotate through categories based on day of week for variety
-    day_of_week = datetime.datetime.now().weekday()
+    # For news day, also fetch live advisories
+    if category == "news":
+        live_vulns = fetch_live_advisories()
+        return live_vulns if live_vulns else NEWS
     
-    if day_of_week in [0, 3]:  # Monday, Thursday
-        category = 'tips'
-    elif day_of_week in [1, 4]:  # Tuesday, Friday
-        category = 'vulnerabilities'
-    else:  # Wednesday, Saturday, Sunday
-        category = 'tools'
-    
-    # Select random item from chosen category
-    selected = random.choice(categories[category])
-    return category, selected
+    return content_map.get(category, NETWORKING)
 
-def create_markdown_file(category, item, date_str):
-    """Create a sanitized markdown file with the content."""
-    # Define folder names
-    folders = {
-        'tips': '01-Security-Tips',
-        'vulnerabilities': '02-Vulnerabilities',
-        'tools': '03-Tools'
-    }
-    
-    folder = folders.get(category, '04-Content')
-    
-    # Sanitize and validate filename
+def create_markdown_file(theme, item, date_str):
+    """Creates a markdown file with proper folder structure."""
+    folder = theme["folder"]
     safe_title = validate_filename(item['title'])
     filename = f"{date_str}-{safe_title}.md"
     
-    # Create directory if it doesn't exist
     os.makedirs(folder, exist_ok=True)
     
-    # Sanitize content
-    safe_title_display = sanitize_text(item['title'])
-    safe_content = sanitize_text(item['content'])
-    
-    # Create markdown content
-    markdown_content = f"""# {safe_title_display}
+    # Add theme icon and category
+    markdown_content = f"""# {theme['icon']} {item['title']}
 
-{safe_content}
+**Category:** {theme['name']}  
+**Date:** {date_str}  
+**Day of Week:** {datetime.datetime.now().strftime('%A')}
 
 ---
-*Generated automatically on {date_str} as part of the CyberSec Daily Streak project.*
 
-**Category:** {category.title()}
-**Security Status:** ✅ Content validated and sanitized
+{item['content']}
+
+---
+
+*Generated automatically as part of the CyberSec Daily Portfolio project.*
+
+**Topics Covered:** #{theme['name'].replace(' ', '')} #CyberSecurity #DailyLearning
 """
     
     filepath = os.path.join(folder, filename)
     
-    # Write file with UTF-8 encoding
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write(markdown_content)
     
     return filepath
 
-def update_dashboard_data(category, item, date_str):
-    """Update the JSON dashboard data file securely."""
+def update_dashboard_data(theme, item, date_str):
+    """Updates the JSON dashboard data file."""
     json_file = 'dashboard_data.json'
     
     # Load existing data or create new
@@ -239,23 +239,27 @@ def update_dashboard_data(category, item, date_str):
             with open(json_file, 'r', encoding='utf-8') as f:
                 data = json.load(f)
         except (json.JSONDecodeError, IOError):
-            data = {'dates': [], 'latest_content': {}}
+            data = {'dates': [], 'latest_content': {}, 'topics': {}}
     else:
-        data = {'dates': [], 'latest_content': {}}
+        data = {'dates': [], 'latest_content': {}, 'topics': {}}
     
-    # Ensure dates list exists
-    if 'dates' not in data:
-        data['dates'] = []
+    # Ensure required fields exist
+    if 'dates' not in data: data['dates'] = []
+    if 'topics' not in data: data['topics'] = {}
     
     # Add today's date if not already present
     if date_str not in data['dates']:
         data['dates'].append(date_str)
         data['dates'].sort()
     
+    # Track topic coverage
+    topic = theme['category']
+    if topic not in data['topics']:
+        data['topics'][topic] = 0
+    data['topics'][topic] += 1
+    
     # Calculate streaks
     dates_set = set(data['dates'])
-    
-    # Current streak (consecutive days up to today)
     current_streak = 0
     check_date = datetime.datetime.now()
     while check_date.strftime("%Y-%m-%d") in dates_set:
@@ -277,12 +281,14 @@ def update_dashboard_data(category, item, date_str):
             else:
                 temp_streak = 1
     
-    # Update latest content (sanitized)
+    # Update latest content
     data['latest_content'] = {
         'title': sanitize_text(item['title']),
-        'category': sanitize_text(category),
+        'category': theme['name'],
+        'icon': theme['icon'],
         'content': sanitize_text(item['content']),
-        'date': date_str
+        'date': date_str,
+        'folder': theme['folder']
     }
     
     # Update stats
@@ -297,38 +303,95 @@ def update_dashboard_data(category, item, date_str):
     
     return data
 
-def main():
-    """Main execution function with error handling."""
-    try:
-        # Get today's date
-        today = datetime.datetime.now()
-        date_str = today.strftime("%Y-%m-%d")
-        
-        print(f"🛡️  CyberSec Daily Generator - {date_str}")
-        print("=" * 50)
-        
-        # Select content
-        category, item = select_daily_content()
-        print(f"📝 Selected category: {category.title()}")
-        print(f"📌 Topic: {item['title']}")
-        
-        # Create markdown file
-        filepath = create_markdown_file(category, item, date_str)
-        print(f"✅ Created: {filepath}")
-        
-        # Update dashboard data
-        data = update_dashboard_data(category, item, date_str)
-        print(f"📊 Updated dashboard data")
-        print(f"🔥 Current streak: {data['current_streak']} days")
-        print(f"🏆 Longest streak: {data['longest_streak']} days")
-        print(f"📈 Total contributions: {data['total_contributions']}")
-        
-        print("=" * 50)
-        print("✅ Daily content generation completed successfully!")
-        
-    except Exception as e:
-        print(f"❌ Error: {str(e)}")
-        raise
+def update_readme(data):
+    """Auto-updates the README with current stats."""
+    readme_file = 'README.md'
+    
+    # Get topic breakdown
+    topics_html = ""
+    if 'topics' in data and data['topics']:
+        topic_items = sorted(data['topics'].items(), key=lambda x: x[1], reverse=True)
+        for topic, count in topic_items[:10]:  # Top 10 topics
+            topic_formatted = topic.replace('-', ' ').title()
+            topics_html += f"- {topic_formatted}: {count} posts\n"
+    
+    # Get latest articles
+    latest_html = ""
+    if 'latest_content' in data and data['latest_content']:
+        latest = data['latest_content']
+        latest_html = f"- **{latest['title']}** ({latest['category']})\n"
+    
+    # Create stats section
+    stats_section = f"""
+## 📊 Project Statistics
 
-if __name__ == "__main__":
-    main()
+| Metric | Value |
+|--------|-------|
+| 🔥 Current Streak | {data.get('current_streak', 0)} days |
+| 🏆 Longest Streak | {data.get('longest_streak', 0)} days |
+| 📈 Total Posts | {data.get('total_contributions', 0)} |
+| 📅 Last Updated | {data.get('last_updated', 'N/A')[:10]} |
+
+### Topics Covered
+
+{topics_html if topics_html else "- Content being generated..."}
+
+### Latest Article
+
+{latest_html if latest_html else "- No articles yet"}
+
+---
+"""
+    
+    # Try to update existing README or create new one
+    try:
+        if os.path.exists(readme_file):
+            with open(readme_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # Replace stats section if it exists
+            if '## 📊 Project Statistics' in content:
+                # Find and replace the stats section
+                import re
+                pattern = r'## 📊 Project Statistics.*?(?=## |\Z)'
+                content = re.sub(pattern, stats_section, content, flags=re.DOTALL)
+            else:
+                # Append to end
+                content += "\n" + stats_section
+            
+            with open(readme_file, 'w', encoding='utf-8') as f:
+                f.write(content)
+        else:
+            # Create basic README
+            basic_readme = f"""# 🛡️ CyberSec Daily Portfolio
+
+[![Daily CyberSec Streak & Deploy](https://github.com/sakash2094/github-streak/actions/workflows/daily-cybersec.yml/badge.svg)](https://github.com/sakash2094/github-streak/actions/workflows/daily-cybersec.yml)
+[![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-222222?style=flat&logo=github)](https://sakash2094.github.io/github-streak/)
+
+> An automated cybersecurity knowledge repository with themed daily content.
+
+🔗 **Live Dashboard:** [https://sakash2094.github.io/github-streak/](https://sakash2094.github.io/github-streak/)
+
+## 📅 Weekly Schedule
+
+| Day | Theme | Focus |
+|-----|-------|-------|
+| Monday | 🌐 Networking | Protocols, Infrastructure, Attacks |
+| Tuesday | 🕸️ Web Security | OWASP Top 10, Headers, CSRF |
+| Wednesday | 🦠 Malware Analysis | Reverse Engineering, YARA, Ransomware |
+| Thursday | 🔍 Digital Forensics | Timeline Analysis, Log Analysis |
+| Friday | 🐍 Python Automation | Security Tools, Scripts |
+| Saturday | 🏆 CTF Challenges | Write-ups, Techniques |
+| Sunday | 📰 Weekly News | CVE Highlights, Threat Intel |
+
+{stats_section}
+## 🚀 How It Works
+
+This repository uses GitHub Actions to automatically generate and publish cybersecurity content every day at 10:00 AM UTC.
+
+- **Themed Days:** Each day focuses on a different cybersecurity domain
+- **Live Data:** Fetches real vulnerabilities from GitHub Security Advisories
+- **Auto-Deploy:** Updates GitHub Pages dashboard automatically
+- **Security-First:** All content is sanitized and validated
+
+## 📂 Repository Structure
