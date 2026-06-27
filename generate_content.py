@@ -102,7 +102,8 @@ FORENSICS = [
     },
     {
         "title": "Timeline Analysis", 
-        "content": "**Creating a Timeline:**\n```bash\n# Extract file system metadata\nfls -r -m C:/ disk.img > bodyfile\n\n# Create timeline\nmactime -b bodyfile -y 2024-01-01 > timeline.csv\n\n# Filter by date range\ngrep \"2024-01-15\" timeline.csv\n\n# View in text format\nmactime -b bodyfile -d\n```\n\n**What to analyze:**\n- File creation/modification times\n- Registry key changes\n- Log file timestamps\n- Browser history entries"
+        "content": "**Creating a Timeline:**\n```bash\n# Extract file system metadata\nfls -r -m C:/ disk.img > bodyfile\n\n# Create timeline\nmactime -b bodyfile -y 2024-01-01 > timeline.csv\n\n# Filter by date range\ngrep \"2024-01-15\" timeline.csv\n\n# View in text format\nmactime -b bodyfile -d\n```\n\n**What to analyze:**\n- File creation/modification times\n- Registry key changes\n- Log file timestamps
+- Browser history entries"
     },
     {
         "title": "Log Analysis Essentials", 
@@ -121,7 +122,13 @@ PYTHON = [
     },
     {
         "title": "Hash Cracker with Dictionary", 
-        "content": "**MD5 Cracker:**\n```python\nimport hashlib\n\ndef crack_md5(hash_to_crack, wordlist):\n    with open(wordlist, 'r') as f:\n        for word in f:\n            word = word.strip()\n            word_hash = hashlib.md5(word.encode()).hexdigest()\n            if word_hash == hash_to_crack:\n                return word\n    return None\n\n# Usage\nresult = crack_md5('5f4dcc3b5aa765d61d8327deb882cf99', 'rockyou.txt')\nprint(f'Password: {result}')  # Output: password\n```\n\n**Supports:** MD5, SHA1, SHA256 (change hashlib function)"
+        "content": "**MD5 Cracker:**\n```python\nimport hashlib\n\ndef crack_md5(hash_to_crack, wordlist):\n    with open(wordlist, 'r') as f:
+        for word in f:
+            word = word.strip()
+            word_hash = hashlib.md5(word.encode()).hexdigest()
+            if word_hash == hash_to_crack:
+                return word
+    return None\n\n# Usage\nresult = crack_md5('5f4dcc3b5aa765d61d8327deb882cf99', 'rockyou.txt')\nprint(f'Password: {result}')  # Output: password\n```\n\n**Supports:** MD5, SHA1, SHA256 (change hashlib function)"
     }
 ]
 
@@ -395,3 +402,68 @@ This repository uses GitHub Actions to automatically generate and publish cybers
 - **Security-First:** All content is sanitized and validated
 
 ## 📂 Repository Structure
+github-streak/
+├── 01-Security-Tips/ # General security tips
+├── 02-Vulnerabilities/ # Vulnerability analysis
+├── 03-Tools/ # Security tools tutorials
+├── 04-Networking/ # Network security
+├── 05-Web-Security/ # Web application security
+├── 06-Malware-Analysis/ # Malware reverse engineering
+├── 07-Forensics/ # Digital forensics
+├── 08-Python/ # Python security scripts
+├── 09-CTF/ # CTF challenges & writeups
+└── 10-News/ # Weekly security news
+
+---
+
+<p align="center">Made with ❤️ for cybersecurity education</p>
+"""
+            with open(readme_file, 'w', encoding='utf-8') as f:
+                f.write(basic_readme)
+        
+        print("✅ README updated successfully!")
+    except Exception as e:
+        print(f"⚠️ Could not update README: {e}")
+
+def main():
+    """Main execution function."""
+    try:
+        today = datetime.datetime.now()
+        date_str = today.strftime("%Y-%m-%d")
+        
+        print(f"🛡️  CyberSec Portfolio Generator - {date_str}")
+        print("=" * 60)
+        
+        # Get today's theme
+        theme = get_today_theme()
+        print(f"📅 Today's Theme: {theme['icon']} {theme['name']}")
+        
+        # Get content for today's theme
+        content_list = get_content_for_theme(theme)
+        item = random.choice(content_list)
+        
+        print(f"📝 Topic: {item['title']}")
+        
+        # Create markdown file
+        filepath = create_markdown_file(theme, item, date_str)
+        print(f"✅ Created: {filepath}")
+        
+        # Update dashboard data
+        data = update_dashboard_data(theme, item, date_str)
+        print(f"📊 Dashboard data updated")
+        print(f"🔥 Current streak: {data['current_streak']} days")
+        print(f"🏆 Longest streak: {data['longest_streak']} days")
+        print(f"📈 Total contributions: {data['total_contributions']}")
+        
+        # Update README
+        update_readme(data)
+        
+        print("=" * 60)
+        print("✅ Portfolio generation completed successfully!")
+        
+    except Exception as e:
+        print(f"❌ Error: {str(e)}")
+        raise
+
+if __name__ == "__main__":
+    main()
