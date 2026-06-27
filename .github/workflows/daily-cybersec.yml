@@ -6,21 +6,16 @@ on:
   workflow_dispatch:
   push:
     branches: ["main"]
-    # SECURITY: Only trigger on push if these specific core files change
-    # Prevents infinite loops when the bot commits daily content
     paths:
       - 'index.html'
       - 'generate_content.py'
       - '.github/workflows/**'
 
-# SECURITY: Default to read-only for the entire workflow (Principle of Least Privilege)
 permissions: read-all
 
 jobs:
   generate-and-deploy:
     runs-on: ubuntu-latest
-    
-    # SECURITY: Grant write permissions ONLY to this specific job that needs it
     permissions:
       contents: write
       pages: write
@@ -42,15 +37,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          
-          # SECURITY: Only stage the exact folders/files the Python script creates.
-          # This prevents accidental commits of temporary runner files.
-          git add 01-Security-Tips/ 02-Vulnerabilities/ 03-Tools/ dashboard_data.json || true
-          
+          git add . || true
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "🛡️ Daily CyberSec update: $(date +%Y-%m-%d)"
+            git commit -m "🛡️ Daily CyberSec: $(date +%Y-%m-%d)"
             git push
           fi
 
