@@ -1,16 +1,17 @@
 {
-  "current_streak": 2,
+  "current_streak": 3,
   "dates": [
     "2026-06-26",
-    "2026-06-27"
+    "2026-06-27",
+    "2026-06-28"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Multi-Factor Authentication (MFA)",
-    "category": "01-Security-Tips",
-    "content": "Enable MFA on all critical accounts. Use an authenticator app or hardware key instead of SMS.\n\n**Why MFA Matters:**\n- Adds an extra layer of security\n- Prevents 99.9% of automated attacks\n- Even if pa",
-    "date": "2026-06-27"
+    "title": "Burp Suite",
+    "category": "03-Tools",
+    "content": "Integrated platform for web application security testing.\n\n**Key Features:**\n- Intercepting proxy\n- Vulnerability scanner\n- Repeater for manual testing\n- Intruder for automated attacks\n\n**Getting Star",
+    "date": "2026-06-28"
   },
   "longest_streak": 2,
-  "total_contributions": 2
+  "total_contributions": 3
 }
