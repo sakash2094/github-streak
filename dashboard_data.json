@@ -1,17 +1,18 @@
 {
-  "current_streak": 3,
+  "current_streak": 4,
   "dates": [
     "2026-06-26",
     "2026-06-27",
-    "2026-06-28"
+    "2026-06-28",
+    "2026-06-29"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Burp Suite",
-    "category": "03-Tools",
-    "content": "Integrated platform for web application security testing.\n\n**Key Features:**\n- Intercepting proxy\n- Vulnerability scanner\n- Repeater for manual testing\n- Intruder for automated attacks\n\n**Getting Star",
-    "date": "2026-06-28"
+    "title": "SQL Injection (SQLi)",
+    "category": "02-Vulnerabilities",
+    "content": "Occurs when untrusted user input is concatenated into database queries.\n\n**Impact:**\n- Data theft\n- Data modification\n- Authentication bypass\n- Remote code execution\n\n**Prevention:**\n- Use parameteriz",
+    "date": "2026-06-29"
   },
   "longest_streak": 2,
-  "total_contributions": 3
+  "total_contributions": 4
 }
