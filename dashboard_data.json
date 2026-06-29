@@ -8,9 +8,9 @@
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "SQL Injection (SQLi)",
-    "category": "02-Vulnerabilities",
-    "content": "Occurs when untrusted user input is concatenated into database queries.\n\n**Impact:**\n- Data theft\n- Data modification\n- Authentication bypass\n- Remote code execution\n\n**Prevention:**\n- Use parameteriz",
+    "title": "Password Hygiene Best Practices",
+    "category": "01-Security-Tips",
+    "content": "Never reuse passwords across different sites. Use a password manager like Bitwarden or 1Password to generate and store complex, unique passwords for every account.\n\n**Best Practices:**\n- Use at least ",
     "date": "2026-06-29"
   },
   "longest_streak": 2,
