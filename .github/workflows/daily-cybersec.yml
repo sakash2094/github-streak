@@ -35,8 +35,8 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "sakash2094"
+          git config user.email "sakash2094@gmail.com"
           git add . || true
           if git diff --staged --quiet; then
             echo "No changes to commit"
