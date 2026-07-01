@@ -1,19 +1,20 @@
 {
-  "current_streak": 5,
+  "current_streak": 6,
   "dates": [
     "2026-06-26",
     "2026-06-27",
     "2026-06-28",
     "2026-06-29",
-    "2026-06-30"
+    "2026-06-30",
+    "2026-07-01"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Nmap (Network Mapper)",
-    "category": "03-Tools",
-    "content": "Industry-standard network discovery and security auditing tool.\n\n**Essential Commands:**\n```bash\n# Basic scan\nnmap 192.168.1.1\n\n# Service version detection\nnmap -sV 192.168.1.1\n\n# Aggressive scan\nnmap",
-    "date": "2026-06-30"
+    "title": "Multi-Factor Authentication (MFA)",
+    "category": "01-Security-Tips",
+    "content": "Enable MFA on all critical accounts. Use an authenticator app or hardware key instead of SMS.\n\n**Why MFA Matters:**\n- Adds an extra layer of security\n- Prevents 99.9% of automated attacks\n- Even if pa",
+    "date": "2026-07-01"
   },
   "longest_streak": 2,
-  "total_contributions": 5
+  "total_contributions": 6
 }
