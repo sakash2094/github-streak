@@ -1,5 +1,5 @@
 {
-  "current_streak": 7,
+  "current_streak": 8,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -7,15 +7,16 @@
     "2026-06-29",
     "2026-06-30",
     "2026-07-01",
-    "2026-07-02"
+    "2026-07-02",
+    "2026-07-03"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Broken Authentication",
-    "category": "02-Vulnerabilities",
-    "content": "Flaws in authentication allowing attackers to compromise credentials.\n\n**Common Issues:**\n- Weak password policies\n- No rate limiting\n- Session fixation\n- Exposed session IDs\n\n**Prevention:**\n- Implem",
-    "date": "2026-07-02"
+    "title": "Password Hygiene Best Practices",
+    "category": "01-Security-Tips",
+    "content": "Never reuse passwords across different sites. Use a password manager like Bitwarden or 1Password to generate and store complex, unique passwords for every account.\n\n**Best Practices:**\n- Use at least ",
+    "date": "2026-07-03"
   },
   "longest_streak": 2,
-  "total_contributions": 7
+  "total_contributions": 8
 }
