@@ -1,5 +1,5 @@
 {
-  "current_streak": 9,
+  "current_streak": 10,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -9,15 +9,16 @@
     "2026-07-01",
     "2026-07-02",
     "2026-07-03",
-    "2026-07-04"
+    "2026-07-04",
+    "2026-07-05"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Multi-Factor Authentication (MFA)",
-    "category": "01-Security-Tips",
-    "content": "Enable MFA on all critical accounts. Use an authenticator app or hardware key instead of SMS.\n\n**Why MFA Matters:**\n- Adds an extra layer of security\n- Prevents 99.9% of automated attacks\n- Even if pa",
-    "date": "2026-07-04"
+    "title": "Wireshark",
+    "category": "03-Tools",
+    "content": "Network protocol analyzer for capturing and browsing network traffic.\n\n**Basic Usage:**\n```bash\n# Capture on interface\nsudo wireshark -i eth0\n\n# Command-line capture\ntshark -i eth0 -w capture.pcap\n\n# ",
+    "date": "2026-07-05"
   },
   "longest_streak": 2,
-  "total_contributions": 9
+  "total_contributions": 10
 }
