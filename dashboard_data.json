@@ -1,5 +1,5 @@
 {
-  "current_streak": 10,
+  "current_streak": 11,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -10,15 +10,16 @@
     "2026-07-02",
     "2026-07-03",
     "2026-07-04",
-    "2026-07-05"
+    "2026-07-05",
+    "2026-07-06"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Wireshark",
-    "category": "03-Tools",
-    "content": "Network protocol analyzer for capturing and browsing network traffic.\n\n**Basic Usage:**\n```bash\n# Capture on interface\nsudo wireshark -i eth0\n\n# Command-line capture\ntshark -i eth0 -w capture.pcap\n\n# ",
-    "date": "2026-07-05"
+    "title": "[LIVE] golang.org/x/image/tiff has excessive resource consumption i",
+    "category": "02-Vulnerabilities",
+    "content": "**Severity:** HIGH\n\n**Description:** The TIFF decoder does not place a limit on the size of PackBits-compressed data. A maliciously-crafted image can exploit this to cause a small image (both in terms",
+    "date": "2026-07-06"
   },
   "longest_streak": 2,
-  "total_contributions": 10
+  "total_contributions": 11
 }
