@@ -1,5 +1,5 @@
 {
-  "current_streak": 13,
+  "current_streak": 1,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -13,15 +13,16 @@
     "2026-07-05",
     "2026-07-06",
     "2026-07-07",
-    "2026-07-08"
+    "2026-07-08",
+    "2026-07-10"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Multi-Factor Authentication (MFA)",
+    "title": "Phishing Attack Recognition",
     "category": "01-Security-Tips",
-    "content": "Enable MFA on all critical accounts. Use an authenticator app or hardware key instead of SMS.\n\n**Why MFA Matters:**\n- Adds an extra layer of security\n- Prevents 99.9% of automated attacks\n- Even if pa",
-    "date": "2026-07-08"
+    "content": "Always verify sender email addresses and hover over links before clicking.\n\n**Red Flags:**\n- Urgent language (Account Suspended, Immediate Action Required)\n- Spelling and grammar errors\n- Mismatched U",
+    "date": "2026-07-10"
   },
   "longest_streak": 2,
-  "total_contributions": 13
+  "total_contributions": 14
 }
