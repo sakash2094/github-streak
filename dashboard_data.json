@@ -1,5 +1,5 @@
 {
-  "current_streak": 1,
+  "current_streak": 2,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -14,15 +14,16 @@
     "2026-07-06",
     "2026-07-07",
     "2026-07-08",
-    "2026-07-10"
+    "2026-07-10",
+    "2026-07-11"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Phishing Attack Recognition",
-    "category": "01-Security-Tips",
-    "content": "Always verify sender email addresses and hover over links before clicking.\n\n**Red Flags:**\n- Urgent language (Account Suspended, Immediate Action Required)\n- Spelling and grammar errors\n- Mismatched U",
-    "date": "2026-07-10"
+    "title": "Nmap (Network Mapper)",
+    "category": "03-Tools",
+    "content": "Industry-standard network discovery and security auditing tool.\n\n**Essential Commands:**\n```bash\n# Basic scan\nnmap 192.168.1.1\n\n# Service version detection\nnmap -sV 192.168.1.1\n\n# Aggressive scan\nnmap",
+    "date": "2026-07-11"
   },
   "longest_streak": 2,
-  "total_contributions": 14
+  "total_contributions": 15
 }
