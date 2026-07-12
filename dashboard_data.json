@@ -1,5 +1,5 @@
 {
-  "current_streak": 2,
+  "current_streak": 3,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -15,15 +15,16 @@
     "2026-07-07",
     "2026-07-08",
     "2026-07-10",
-    "2026-07-11"
+    "2026-07-11",
+    "2026-07-12"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Nmap (Network Mapper)",
-    "category": "03-Tools",
-    "content": "Industry-standard network discovery and security auditing tool.\n\n**Essential Commands:**\n```bash\n# Basic scan\nnmap 192.168.1.1\n\n# Service version detection\nnmap -sV 192.168.1.1\n\n# Aggressive scan\nnmap",
-    "date": "2026-07-11"
+    "title": "[LIVE] TSDProxy: Internal proxy auth token forwarded to backend ser",
+    "category": "02-Vulnerabilities",
+    "content": "**Severity:** CRITICAL\n\n**Description:** ## Description\n\nA vulnerability was discovered in TSDProxy where it forwards its internal per-process authentication token to all proxied backend services. Whe",
+    "date": "2026-07-12"
   },
   "longest_streak": 2,
-  "total_contributions": 15
+  "total_contributions": 16
 }
