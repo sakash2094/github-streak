@@ -1,5 +1,5 @@
 {
-  "current_streak": 3,
+  "current_streak": 4,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -16,15 +16,16 @@
     "2026-07-08",
     "2026-07-10",
     "2026-07-11",
-    "2026-07-12"
+    "2026-07-12",
+    "2026-07-13"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "[LIVE] TSDProxy: Internal proxy auth token forwarded to backend ser",
+    "title": "SQL Injection (SQLi)",
     "category": "02-Vulnerabilities",
-    "content": "**Severity:** CRITICAL\n\n**Description:** ## Description\n\nA vulnerability was discovered in TSDProxy where it forwards its internal per-process authentication token to all proxied backend services. Whe",
-    "date": "2026-07-12"
+    "content": "Occurs when untrusted user input is concatenated into database queries.\n\n**Impact:**\n- Data theft\n- Data modification\n- Authentication bypass\n- Remote code execution\n\n**Prevention:**\n- Use parameteriz",
+    "date": "2026-07-13"
   },
   "longest_streak": 2,
-  "total_contributions": 16
+  "total_contributions": 17
 }
