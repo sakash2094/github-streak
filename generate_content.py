@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CyberSec Daily Generator - Simple 3-Folder System
+CyberSec Daily Generator - Fixed Streak Calculation
 """
 
 import json
@@ -101,6 +101,61 @@ def fetch_live_advisories():
         print(f"⚠️ API fetch failed: {e}")
         return []
 
+# --- FIXED STREAK CALCULATION ---
+def calculate_streaks(dates_list):
+    """
+    Calculate current streak and longest streak from a list of dates.
+    Returns: (current_streak, longest_streak)
+    """
+    if not dates_list:
+        return 0, 0
+    
+    # Sort dates
+    sorted_dates = sorted(set(dates_list))
+    
+    # Convert to datetime objects
+    date_objects = []
+    for d in sorted_dates:
+        try:
+            date_objects.append(datetime.datetime.strptime(d, "%Y-%m-%d").date())
+        except:
+            continue
+    
+    if not date_objects:
+        return 0, 0
+    
+    # Calculate current streak (counting backwards from most recent)
+    current_streak = 1
+    today = datetime.datetime.now().date()
+    most_recent = max(date_objects)
+    
+    # Check if most recent date is today or yesterday
+    if (today - most_recent).days > 1:
+        current_streak = 0  # Streak is broken
+    else:
+        # Count backwards from most recent
+        check_date = most_recent
+        while True:
+            prev_date = check_date - datetime.timedelta(days=1)
+            if prev_date in date_objects:
+                current_streak += 1
+                check_date = prev_date
+            else:
+                break
+    
+    # Calculate longest streak
+    longest_streak = 1
+    current_run = 1
+    
+    for i in range(1, len(date_objects)):
+        if (date_objects[i] - date_objects[i-1]).days == 1:
+            current_run += 1
+            longest_streak = max(longest_streak, current_run)
+        else:
+            current_run = 1
+    
+    return current_streak, longest_streak
+
 # --- MAIN LOGIC ---
 def main():
     try:
@@ -153,20 +208,16 @@ def main():
         else:
             data = {'dates': [], 'latest_content': {}}
         
+        # Add today's date if not already present
         if date_str not in data['dates']:
             data['dates'].append(date_str)
-            data['dates'].sort()
         
-        # Calculate streak
-        dates_set = set(data['dates'])
-        current_streak = 0
-        check_date = datetime.datetime.now()
-        while check_date.strftime("%Y-%m-%d") in dates_set:
-            current_streak += 1
-            check_date -= datetime.timedelta(days=1)
+        # Calculate streaks using FIXED function
+        current_streak, longest_streak = calculate_streaks(data['dates'])
         
         data['current_streak'] = current_streak
-        data['total_contributions'] = len(data['dates'])
+        data['longest_streak'] = longest_streak
+        data['total_contributions'] = len(set(data['dates']))
         data['latest_content'] = {
             'title': item['title'],
             'category': folder,
@@ -177,7 +228,9 @@ def main():
         with open(json_file, 'w') as f:
             json.dump(data, f, indent=2)
         
-        print(f"🔥 Streak: {current_streak} days")
+        print(f" Current Streak: {current_streak} days")
+        print(f"🏆 Longest Streak: {longest_streak} days")
+        print(f"📈 Total Days: {len(set(data['dates']))}")
         print("✅ Done!")
         
     except Exception as e:
