@@ -346,10 +346,6 @@
         <div class="stat-label">Current Streak 🔥</div>
       </div>
       <div class="stat-card">
-        <div class="stat-value" id="longest-streak" aria-label="Longest streak in days">0</div>
-        <div class="stat-label">Longest Streak 🏆</div>
-      </div>
-      <div class="stat-card">
         <div class="stat-value" id="total-days" aria-label="Total active days">0</div>
         <div class="stat-label">Total Days Active</div>
       </div>
@@ -544,17 +540,11 @@
       // Update statistics
       function updateStats(data) {
         const currentStreakEl = document.getElementById('current-streak');
-        const longestStreakEl = document.getElementById('longest-streak');
         const totalDaysEl = document.getElementById('total-days');
 
         if (currentStreakEl) {
           currentStreakEl.textContent = data.current_streak || 0;
           currentStreakEl.setAttribute('aria-label', `Current streak: ${data.current_streak || 0} days`);
-        }
-
-        if (longestStreakEl) {
-          longestStreakEl.textContent = data.longest_streak || 0;
-          longestStreakEl.setAttribute('aria-label', `Longest streak: ${data.longest_streak || 0} days`);
         }
 
         if (totalDaysEl) {
