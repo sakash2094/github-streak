@@ -1,5 +1,5 @@
 {
-  "current_streak": 9,
+  "current_streak": 10,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -22,15 +22,16 @@
     "2026-07-15",
     "2026-07-16",
     "2026-07-17",
-    "2026-07-18"
+    "2026-07-18",
+    "2026-07-19"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Wireshark",
+    "title": "Burp Suite",
     "category": "03-Tools",
-    "content": "Network protocol analyzer for capturing and browsing network traffic.\n\n**Basic Usage:**\n```bash\n# Capture on interface\nsudo wireshark -i eth0\n\n# Command-line capture\ntshark -i eth0 -w capture.pcap\n\n# ",
-    "date": "2026-07-18"
+    "content": "Integrated platform for web application security testing.\n\n**Key Features:**\n- Intercepting proxy\n- Vulnerability scanner\n- Repeater for manual testing\n- Intruder for automated attacks\n\n**Getting Star",
+    "date": "2026-07-19"
   },
   "longest_streak": 13,
-  "total_contributions": 22
+  "total_contributions": 23
 }
