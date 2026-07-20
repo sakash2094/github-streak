@@ -1,5 +1,5 @@
 {
-  "current_streak": 10,
+  "current_streak": 11,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -23,15 +23,16 @@
     "2026-07-16",
     "2026-07-17",
     "2026-07-18",
-    "2026-07-19"
+    "2026-07-19",
+    "2026-07-20"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Burp Suite",
-    "category": "03-Tools",
-    "content": "Integrated platform for web application security testing.\n\n**Key Features:**\n- Intercepting proxy\n- Vulnerability scanner\n- Repeater for manual testing\n- Intruder for automated attacks\n\n**Getting Star",
-    "date": "2026-07-19"
+    "title": "Phishing Attack Recognition",
+    "category": "01-Security-Tips",
+    "content": "Always verify sender email addresses and hover over links before clicking.\n\n**Red Flags:**\n- Urgent language (Account Suspended, Immediate Action Required)\n- Spelling and grammar errors\n- Mismatched U",
+    "date": "2026-07-20"
   },
   "longest_streak": 13,
-  "total_contributions": 23
+  "total_contributions": 24
 }
