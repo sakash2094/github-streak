@@ -1,5 +1,5 @@
 {
-  "current_streak": 12,
+  "current_streak": 13,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -25,15 +25,16 @@
     "2026-07-18",
     "2026-07-19",
     "2026-07-20",
-    "2026-07-21"
+    "2026-07-21",
+    "2026-07-22"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Wireshark",
-    "category": "03-Tools",
-    "content": "Network protocol analyzer for capturing and browsing network traffic.\n\n**Basic Usage:**\n```bash\n# Capture on interface\nsudo wireshark -i eth0\n\n# Command-line capture\ntshark -i eth0 -w capture.pcap\n\n# ",
-    "date": "2026-07-21"
+    "title": "[LIVE] fast-xml-parser: Repeated DOCTYPE declarations reset entity ",
+    "category": "02-Vulnerabilities",
+    "content": "**Severity:** HIGH\n\n**Description:** ### Impact\n`fast-xml-parser` processes multiple \"DOCTYPE\" declarations within a single XML document. Each declaration passes its entities to `@nodable/entities` th",
+    "date": "2026-07-22"
   },
   "longest_streak": 13,
-  "total_contributions": 25
+  "total_contributions": 26
 }
