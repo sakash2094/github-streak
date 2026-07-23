@@ -1,5 +1,5 @@
 {
-  "current_streak": 13,
+  "current_streak": 14,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -26,15 +26,16 @@
     "2026-07-19",
     "2026-07-20",
     "2026-07-21",
-    "2026-07-22"
+    "2026-07-22",
+    "2026-07-23"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "[LIVE] fast-xml-parser: Repeated DOCTYPE declarations reset entity ",
-    "category": "02-Vulnerabilities",
-    "content": "**Severity:** HIGH\n\n**Description:** ### Impact\n`fast-xml-parser` processes multiple \"DOCTYPE\" declarations within a single XML document. Each declaration passes its entities to `@nodable/entities` th",
-    "date": "2026-07-22"
+    "title": "Nmap (Network Mapper)",
+    "category": "03-Tools",
+    "content": "Industry-standard network discovery and security auditing tool.\n\n**Essential Commands:**\n```bash\n# Basic scan\nnmap 192.168.1.1\n\n# Service version detection\nnmap -sV 192.168.1.1\n\n# Aggressive scan\nnmap",
+    "date": "2026-07-23"
   },
-  "longest_streak": 13,
-  "total_contributions": 26
+  "longest_streak": 14,
+  "total_contributions": 27
 }
