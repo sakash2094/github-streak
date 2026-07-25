@@ -1,5 +1,5 @@
 {
-  "current_streak": 15,
+  "current_streak": 16,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -28,15 +28,16 @@
     "2026-07-21",
     "2026-07-22",
     "2026-07-23",
-    "2026-07-24"
+    "2026-07-24",
+    "2026-07-25"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Wireshark",
-    "category": "03-Tools",
-    "content": "Network protocol analyzer for capturing and browsing network traffic.\n\n**Basic Usage:**\n```bash\n# Capture on interface\nsudo wireshark -i eth0\n\n# Command-line capture\ntshark -i eth0 -w capture.pcap\n\n# ",
-    "date": "2026-07-24"
+    "title": "[LIVE] etcd: `tlsListener.acceptLoop` spawns unbounded handshake go",
+    "category": "02-Vulnerabilities",
+    "content": "**Severity:** HIGH\n\n**Description:** ### Impact\n_What kind of vulnerability is it? Who is impacted?_\n\nA network attacker who can reach an etcd TLS listener can open many TCP connections and never send",
+    "date": "2026-07-25"
   },
-  "longest_streak": 15,
-  "total_contributions": 28
+  "longest_streak": 16,
+  "total_contributions": 29
 }
