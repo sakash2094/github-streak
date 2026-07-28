@@ -1,5 +1,5 @@
 {
-  "current_streak": 18,
+  "current_streak": 19,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -31,15 +31,16 @@
     "2026-07-24",
     "2026-07-25",
     "2026-07-26",
-    "2026-07-27"
+    "2026-07-27",
+    "2026-07-28"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Wireshark",
-    "category": "03-Tools",
-    "content": "Network protocol analyzer for capturing and browsing network traffic.\n\n**Basic Usage:**\n```bash\n# Capture on interface\nsudo wireshark -i eth0\n\n# Command-line capture\ntshark -i eth0 -w capture.pcap\n\n# ",
-    "date": "2026-07-27"
+    "title": "[LIVE] FrontMCP: Server-Side Request Forgery (SSRF) in the OpenAPI ",
+    "category": "02-Vulnerabilities",
+    "content": "**Severity:** MEDIUM\n\n**Description:** ## Summary\n\nThe OpenAPI adapter's spec-change **poller** (`OpenApiSpecPoller`) re-fetched the\nconfigured spec `url` on a timer using a raw global `fetch()`, bypa",
+    "date": "2026-07-28"
   },
-  "longest_streak": 18,
-  "total_contributions": 31
+  "longest_streak": 19,
+  "total_contributions": 32
 }
