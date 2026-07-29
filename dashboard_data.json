@@ -1,5 +1,5 @@
 {
-  "current_streak": 19,
+  "current_streak": 20,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -32,15 +32,16 @@
     "2026-07-25",
     "2026-07-26",
     "2026-07-27",
-    "2026-07-28"
+    "2026-07-28",
+    "2026-07-29"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "[LIVE] FrontMCP: Server-Side Request Forgery (SSRF) in the OpenAPI ",
+    "title": "Cross-Site Scripting (XSS)",
     "category": "02-Vulnerabilities",
-    "content": "**Severity:** MEDIUM\n\n**Description:** ## Summary\n\nThe OpenAPI adapter's spec-change **poller** (`OpenApiSpecPoller`) re-fetched the\nconfigured spec `url` on a timer using a raw global `fetch()`, bypa",
-    "date": "2026-07-28"
+    "content": "Happens when untrusted data is included in web pages without proper escaping.\n\n**Types:**\n1. Reflected XSS - Malicious script reflected in error messages\n2. Stored XSS - Script stored in database\n3. D",
+    "date": "2026-07-29"
   },
-  "longest_streak": 19,
-  "total_contributions": 32
+  "longest_streak": 20,
+  "total_contributions": 33
 }
