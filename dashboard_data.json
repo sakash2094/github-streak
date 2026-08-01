@@ -1,5 +1,5 @@
 {
-  "current_streak": 22,
+  "current_streak": 23,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -35,15 +35,16 @@
     "2026-07-28",
     "2026-07-29",
     "2026-07-30",
-    "2026-07-31"
+    "2026-07-31",
+    "2026-08-01"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Nmap (Network Mapper)",
-    "category": "03-Tools",
-    "content": "Industry-standard network discovery and security auditing tool.\n\n**Essential Commands:**\n```bash\n# Basic scan\nnmap 192.168.1.1\n\n# Service version detection\nnmap -sV 192.168.1.1\n\n# Aggressive scan\nnmap",
-    "date": "2026-07-31"
+    "title": "[LIVE] FileBrowser Quantum's path traversal issue in subtitle handl",
+    "category": "02-Vulnerabilities",
+    "content": "**Severity:** HIGH\n\n**Description:** ### Summary\n\nThe `subtitlesHandler` endpoint (`GET /api/media/subtitles`) accepts two user-controlled query parameters: `path` and `name`, both of which are used i",
+    "date": "2026-08-01"
   },
-  "longest_streak": 22,
-  "total_contributions": 35
+  "longest_streak": 23,
+  "total_contributions": 36
 }
