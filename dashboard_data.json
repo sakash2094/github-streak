@@ -1,5 +1,5 @@
 {
-  "current_streak": 23,
+  "current_streak": 24,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -36,15 +36,16 @@
     "2026-07-29",
     "2026-07-30",
     "2026-07-31",
-    "2026-08-01"
+    "2026-08-01",
+    "2026-08-02"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "[LIVE] FileBrowser Quantum's path traversal issue in subtitle handl",
-    "category": "02-Vulnerabilities",
-    "content": "**Severity:** HIGH\n\n**Description:** ### Summary\n\nThe `subtitlesHandler` endpoint (`GET /api/media/subtitles`) accepts two user-controlled query parameters: `path` and `name`, both of which are used i",
-    "date": "2026-08-01"
+    "title": "Multi-Factor Authentication (MFA)",
+    "category": "01-Security-Tips",
+    "content": "Enable MFA on all critical accounts. Use an authenticator app or hardware key instead of SMS.\n\n**Why MFA Matters:**\n- Adds an extra layer of security\n- Prevents 99.9% of automated attacks\n- Even if pa",
+    "date": "2026-08-02"
   },
-  "longest_streak": 23,
-  "total_contributions": 36
+  "longest_streak": 24,
+  "total_contributions": 37
 }
