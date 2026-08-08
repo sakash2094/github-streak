@@ -1,5 +1,5 @@
 {
-  "current_streak": 29,
+  "current_streak": 30,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -42,15 +42,16 @@
     "2026-08-04",
     "2026-08-05",
     "2026-08-06",
-    "2026-08-07"
+    "2026-08-07",
+    "2026-08-08"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Password Hygiene Best Practices",
-    "category": "01-Security-Tips",
-    "content": "Never reuse passwords across different sites. Use a password manager like Bitwarden or 1Password to generate and store complex, unique passwords for every account.\n\n**Best Practices:**\n- Use at least ",
-    "date": "2026-08-07"
+    "title": "[LIVE] crypto-js: Insufficient Entropy in Cryptographic Secret Gene",
+    "category": "02-Vulnerabilities",
+    "content": "**Severity:** CRITICAL\n\n**Description:** ### Summary\n\n`CryptoJS.lib.WordArray.random()` in affected versions is not a cryptographically secure random number generator. Nominal requests for 128 or 256 ",
+    "date": "2026-08-08"
   },
-  "longest_streak": 29,
-  "total_contributions": 42
+  "longest_streak": 30,
+  "total_contributions": 43
 }
