@@ -1,5 +1,5 @@
 {
-  "current_streak": 30,
+  "current_streak": 31,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -43,15 +43,16 @@
     "2026-08-05",
     "2026-08-06",
     "2026-08-07",
-    "2026-08-08"
+    "2026-08-08",
+    "2026-08-09"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "[LIVE] crypto-js: Insufficient Entropy in Cryptographic Secret Gene",
-    "category": "02-Vulnerabilities",
-    "content": "**Severity:** CRITICAL\n\n**Description:** ### Summary\n\n`CryptoJS.lib.WordArray.random()` in affected versions is not a cryptographically secure random number generator. Nominal requests for 128 or 256 ",
-    "date": "2026-08-08"
+    "title": "Nmap (Network Mapper)",
+    "category": "03-Tools",
+    "content": "Industry-standard network discovery and security auditing tool.\n\n**Essential Commands:**\n```bash\n# Basic scan\nnmap 192.168.1.1\n\n# Service version detection\nnmap -sV 192.168.1.1\n\n# Aggressive scan\nnmap",
+    "date": "2026-08-09"
   },
-  "longest_streak": 30,
-  "total_contributions": 43
+  "longest_streak": 31,
+  "total_contributions": 44
 }
