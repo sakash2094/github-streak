@@ -1,5 +1,5 @@
 {
-  "current_streak": 31,
+  "current_streak": 32,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -44,15 +44,16 @@
     "2026-08-06",
     "2026-08-07",
     "2026-08-08",
-    "2026-08-09"
+    "2026-08-09",
+    "2026-08-10"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Nmap (Network Mapper)",
-    "category": "03-Tools",
-    "content": "Industry-standard network discovery and security auditing tool.\n\n**Essential Commands:**\n```bash\n# Basic scan\nnmap 192.168.1.1\n\n# Service version detection\nnmap -sV 192.168.1.1\n\n# Aggressive scan\nnmap",
-    "date": "2026-08-09"
+    "title": "[LIVE] pypdf: Possible long runtimes/large memory usage for large C",
+    "category": "02-Vulnerabilities",
+    "content": "**Severity:** MEDIUM\n\n**Description:** ### Impact\n\nAn attacker who uses this vulnerability can craft a PDF which leads to long runtimes and large memory consumption. This requires parsing the font wid",
+    "date": "2026-08-10"
   },
-  "longest_streak": 31,
-  "total_contributions": 44
+  "longest_streak": 32,
+  "total_contributions": 45
 }
