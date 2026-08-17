@@ -1,5 +1,5 @@
 {
-  "current_streak": 38,
+  "current_streak": 39,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -51,15 +51,16 @@
     "2026-08-13",
     "2026-08-14",
     "2026-08-15",
-    "2026-08-16"
+    "2026-08-16",
+    "2026-08-17"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Nmap (Network Mapper)",
-    "category": "03-Tools",
-    "content": "Industry-standard network discovery and security auditing tool.\n\n**Essential Commands:**\n```bash\n# Basic scan\nnmap 192.168.1.1\n\n# Service version detection\nnmap -sV 192.168.1.1\n\n# Aggressive scan\nnmap",
-    "date": "2026-08-16"
+    "title": "[LIVE] s2n-quic has excessive memory allocation",
+    "category": "02-Vulnerabilities",
+    "content": "**Severity:** MEDIUM\n\n**Description:** s2n-quic is a Rust implementation of the QUIC protocol. An unauthenticated user can attempt to exhaust server memory on an s2n-quic endpoint by sending crafted C",
+    "date": "2026-08-17"
   },
-  "longest_streak": 38,
-  "total_contributions": 51
+  "longest_streak": 39,
+  "total_contributions": 52
 }
