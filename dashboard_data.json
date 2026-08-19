@@ -1,5 +1,5 @@
 {
-  "current_streak": 40,
+  "current_streak": 41,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -53,15 +53,16 @@
     "2026-08-15",
     "2026-08-16",
     "2026-08-17",
-    "2026-08-18"
+    "2026-08-18",
+    "2026-08-19"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "[LIVE] MLflow: Unauthenticated full-read SSRF in webhook delivery: ",
+    "title": "[LIVE] linuxfabrik-lib: Arbitrary root file read via live --test ar",
     "category": "02-Vulnerabilities",
-    "content": "**Severity:** CRITICAL\n\n**Description:** ### Summary\nThe default MLflow Tracking Server (`mlflow server`, no authentication, default SQLite backend) exposes the model-registry webhooks API unauthentic",
-    "date": "2026-08-18"
+    "content": "**Severity:** MEDIUM\n\n**Description:** ## Summary\nEvery Linuxfabrik check plugin that supports the shared `--test` argument (routed through `lib.lftest.test()`) will, when `--test` is supplied, treat ",
+    "date": "2026-08-19"
   },
-  "longest_streak": 40,
-  "total_contributions": 53
+  "longest_streak": 41,
+  "total_contributions": 54
 }
