@@ -1,5 +1,5 @@
 {
-  "current_streak": 41,
+  "current_streak": 42,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -54,15 +54,16 @@
     "2026-08-16",
     "2026-08-17",
     "2026-08-18",
-    "2026-08-19"
+    "2026-08-19",
+    "2026-08-20"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "[LIVE] linuxfabrik-lib: Arbitrary root file read via live --test ar",
-    "category": "02-Vulnerabilities",
-    "content": "**Severity:** MEDIUM\n\n**Description:** ## Summary\nEvery Linuxfabrik check plugin that supports the shared `--test` argument (routed through `lib.lftest.test()`) will, when `--test` is supplied, treat ",
-    "date": "2026-08-19"
+    "title": "Password Hygiene Best Practices",
+    "category": "01-Security-Tips",
+    "content": "Never reuse passwords across different sites. Use a password manager like Bitwarden or 1Password to generate and store complex, unique passwords for every account.\n\n**Best Practices:**\n- Use at least ",
+    "date": "2026-08-20"
   },
-  "longest_streak": 41,
-  "total_contributions": 54
+  "longest_streak": 42,
+  "total_contributions": 55
 }
