@@ -1,5 +1,5 @@
 {
-  "current_streak": 42,
+  "current_streak": 43,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -55,15 +55,16 @@
     "2026-08-17",
     "2026-08-18",
     "2026-08-19",
-    "2026-08-20"
+    "2026-08-20",
+    "2026-08-21"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Password Hygiene Best Practices",
-    "category": "01-Security-Tips",
-    "content": "Never reuse passwords across different sites. Use a password manager like Bitwarden or 1Password to generate and store complex, unique passwords for every account.\n\n**Best Practices:**\n- Use at least ",
-    "date": "2026-08-20"
+    "title": "[LIVE] gettext-converter: Prototype pollution in js2i18next() via c",
+    "category": "02-Vulnerabilities",
+    "content": "**Severity:** MEDIUM\n\n**Description:** ### Impact\n\n`js2i18next()` is vulnerable to prototype pollution. When converting translations, it splits nested keys on the key separator (default `##`) and uses",
+    "date": "2026-08-21"
   },
-  "longest_streak": 42,
-  "total_contributions": 55
+  "longest_streak": 43,
+  "total_contributions": 56
 }
