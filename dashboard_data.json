@@ -1,5 +1,5 @@
 {
-  "current_streak": 43,
+  "current_streak": 44,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -56,15 +56,16 @@
     "2026-08-18",
     "2026-08-19",
     "2026-08-20",
-    "2026-08-21"
+    "2026-08-21",
+    "2026-08-22"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "[LIVE] gettext-converter: Prototype pollution in js2i18next() via c",
-    "category": "02-Vulnerabilities",
-    "content": "**Severity:** MEDIUM\n\n**Description:** ### Impact\n\n`js2i18next()` is vulnerable to prototype pollution. When converting translations, it splits nested keys on the key separator (default `##`) and uses",
-    "date": "2026-08-21"
+    "title": "Phishing Attack Recognition",
+    "category": "01-Security-Tips",
+    "content": "Always verify sender email addresses and hover over links before clicking.\n\n**Red Flags:**\n- Urgent language (Account Suspended, Immediate Action Required)\n- Spelling and grammar errors\n- Mismatched U",
+    "date": "2026-08-22"
   },
-  "longest_streak": 43,
-  "total_contributions": 56
+  "longest_streak": 44,
+  "total_contributions": 57
 }
