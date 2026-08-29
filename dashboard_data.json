@@ -1,5 +1,5 @@
 {
-  "current_streak": 50,
+  "current_streak": 51,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -63,15 +63,16 @@
     "2026-08-25",
     "2026-08-26",
     "2026-08-27",
-    "2026-08-28"
+    "2026-08-28",
+    "2026-08-29"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Burp Suite",
-    "category": "03-Tools",
-    "content": "Integrated platform for web application security testing.\n\n**Key Features:**\n- Intercepting proxy\n- Vulnerability scanner\n- Repeater for manual testing\n- Intruder for automated attacks\n\n**Getting Star",
-    "date": "2026-08-28"
+    "title": "[LIVE] RestrictedPython guard hooks can be shadowed via positional-",
+    "category": "02-Vulnerabilities",
+    "content": "**Severity:** HIGH\n\n**Description:** ### Impact\n\nRestrictedPython rewrites sensitive operations to go through guard hooks. Attribute access becomes `_getattr_(obj, name)`, item access becomes `_getite",
+    "date": "2026-08-29"
   },
-  "longest_streak": 50,
-  "total_contributions": 63
+  "longest_streak": 51,
+  "total_contributions": 64
 }
