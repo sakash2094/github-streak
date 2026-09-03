@@ -1,5 +1,5 @@
 {
-  "current_streak": 55,
+  "current_streak": 56,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -68,15 +68,16 @@
     "2026-08-30",
     "2026-08-31",
     "2026-09-01",
-    "2026-09-02"
+    "2026-09-02",
+    "2026-09-03"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Multi-Factor Authentication (MFA)",
-    "category": "01-Security-Tips",
-    "content": "Enable MFA on all critical accounts. Use an authenticator app or hardware key instead of SMS.\n\n**Why MFA Matters:**\n- Adds an extra layer of security\n- Prevents 99.9% of automated attacks\n- Even if pa",
-    "date": "2026-09-02"
+    "title": "[LIVE] OpenChoreo: Authenticated OS command injection via OpenChore",
+    "category": "02-Vulnerabilities",
+    "content": "**Severity:** HIGH\n\n**Description:** ### Summary\nOpenChoreo Workflow Plane templates were vulnerable to OS command injection because some developer-controlled workflow parameters were interpolated dir",
+    "date": "2026-09-03"
   },
-  "longest_streak": 55,
-  "total_contributions": 68
+  "longest_streak": 56,
+  "total_contributions": 69
 }
