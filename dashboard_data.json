@@ -1,5 +1,5 @@
 {
-  "current_streak": 56,
+  "current_streak": 57,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -69,15 +69,16 @@
     "2026-08-31",
     "2026-09-01",
     "2026-09-02",
-    "2026-09-03"
+    "2026-09-03",
+    "2026-09-04"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "[LIVE] OpenChoreo: Authenticated OS command injection via OpenChore",
-    "category": "02-Vulnerabilities",
-    "content": "**Severity:** HIGH\n\n**Description:** ### Summary\nOpenChoreo Workflow Plane templates were vulnerable to OS command injection because some developer-controlled workflow parameters were interpolated dir",
-    "date": "2026-09-03"
+    "title": "Nmap (Network Mapper)",
+    "category": "03-Tools",
+    "content": "Industry-standard network discovery and security auditing tool.\n\n**Essential Commands:**\n```bash\n# Basic scan\nnmap 192.168.1.1\n\n# Service version detection\nnmap -sV 192.168.1.1\n\n# Aggressive scan\nnmap",
+    "date": "2026-09-04"
   },
-  "longest_streak": 56,
-  "total_contributions": 69
+  "longest_streak": 57,
+  "total_contributions": 70
 }
