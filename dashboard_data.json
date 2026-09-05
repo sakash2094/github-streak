@@ -1,5 +1,5 @@
 {
-  "current_streak": 57,
+  "current_streak": 58,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -70,15 +70,16 @@
     "2026-09-01",
     "2026-09-02",
     "2026-09-03",
-    "2026-09-04"
+    "2026-09-04",
+    "2026-09-05"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Nmap (Network Mapper)",
-    "category": "03-Tools",
-    "content": "Industry-standard network discovery and security auditing tool.\n\n**Essential Commands:**\n```bash\n# Basic scan\nnmap 192.168.1.1\n\n# Service version detection\nnmap -sV 192.168.1.1\n\n# Aggressive scan\nnmap",
-    "date": "2026-09-04"
+    "title": "Cross-Site Scripting (XSS)",
+    "category": "02-Vulnerabilities",
+    "content": "Happens when untrusted data is included in web pages without proper escaping.\n\n**Types:**\n1. Reflected XSS - Malicious script reflected in error messages\n2. Stored XSS - Script stored in database\n3. D",
+    "date": "2026-09-05"
   },
-  "longest_streak": 57,
-  "total_contributions": 70
+  "longest_streak": 58,
+  "total_contributions": 71
 }
