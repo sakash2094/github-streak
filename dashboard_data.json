@@ -1,5 +1,5 @@
 {
-  "current_streak": 68,
+  "current_streak": 69,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -81,15 +81,16 @@
     "2026-09-12",
     "2026-09-13",
     "2026-09-14",
-    "2026-09-15"
+    "2026-09-15",
+    "2026-09-16"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "[LIVE] ESPHome Device Builder: Renamed auth env vars silently disab",
-    "category": "02-Vulnerabilities",
-    "content": "**Severity:** CRITICAL\n\n**Description:** ## Summary\n\nThe dashboard reads its authentication credentials from `$ESPHOME_USERNAME` and `$ESPHOME_PASSWORD`. Earlier versions, and the legacy `esphome` das",
-    "date": "2026-09-15"
+    "title": "Wireshark",
+    "category": "03-Tools",
+    "content": "Network protocol analyzer for capturing and browsing network traffic.\n\n**Basic Usage:**\n```bash\n# Capture on interface\nsudo wireshark -i eth0\n\n# Command-line capture\ntshark -i eth0 -w capture.pcap\n\n# ",
+    "date": "2026-09-16"
   },
-  "longest_streak": 68,
-  "total_contributions": 81
+  "longest_streak": 69,
+  "total_contributions": 82
 }
