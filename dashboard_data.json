@@ -1,5 +1,5 @@
 {
-  "current_streak": 74,
+  "current_streak": 75,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -87,15 +87,16 @@
     "2026-09-18",
     "2026-09-19",
     "2026-09-20",
-    "2026-09-21"
+    "2026-09-21",
+    "2026-09-22"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Nmap (Network Mapper)",
+    "title": "Burp Suite",
     "category": "03-Tools",
-    "content": "Industry-standard network discovery and security auditing tool.\n\n**Essential Commands:**\n```bash\n# Basic scan\nnmap 192.168.1.1\n\n# Service version detection\nnmap -sV 192.168.1.1\n\n# Aggressive scan\nnmap",
-    "date": "2026-09-21"
+    "content": "Integrated platform for web application security testing.\n\n**Key Features:**\n- Intercepting proxy\n- Vulnerability scanner\n- Repeater for manual testing\n- Intruder for automated attacks\n\n**Getting Star",
+    "date": "2026-09-22"
   },
-  "longest_streak": 74,
-  "total_contributions": 87
+  "longest_streak": 75,
+  "total_contributions": 88
 }
