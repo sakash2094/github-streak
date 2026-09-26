@@ -1,5 +1,5 @@
 {
-  "current_streak": 78,
+  "current_streak": 79,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -91,15 +91,16 @@
     "2026-09-22",
     "2026-09-23",
     "2026-09-24",
-    "2026-09-25"
+    "2026-09-25",
+    "2026-09-26"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "SQL Injection (SQLi)",
-    "category": "02-Vulnerabilities",
-    "content": "Occurs when untrusted user input is concatenated into database queries.\n\n**Impact:**\n- Data theft\n- Data modification\n- Authentication bypass\n- Remote code execution\n\n**Prevention:**\n- Use parameteriz",
-    "date": "2026-09-25"
+    "title": "Wireshark",
+    "category": "03-Tools",
+    "content": "Network protocol analyzer for capturing and browsing network traffic.\n\n**Basic Usage:**\n```bash\n# Capture on interface\nsudo wireshark -i eth0\n\n# Command-line capture\ntshark -i eth0 -w capture.pcap\n\n# ",
+    "date": "2026-09-26"
   },
-  "longest_streak": 78,
-  "total_contributions": 91
+  "longest_streak": 79,
+  "total_contributions": 92
 }
