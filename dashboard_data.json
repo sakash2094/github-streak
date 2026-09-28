@@ -1,5 +1,5 @@
 {
-  "current_streak": 80,
+  "current_streak": 81,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -93,15 +93,16 @@
     "2026-09-24",
     "2026-09-25",
     "2026-09-26",
-    "2026-09-27"
+    "2026-09-27",
+    "2026-09-28"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "SQL Injection (SQLi)",
-    "category": "02-Vulnerabilities",
-    "content": "Occurs when untrusted user input is concatenated into database queries.\n\n**Impact:**\n- Data theft\n- Data modification\n- Authentication bypass\n- Remote code execution\n\n**Prevention:**\n- Use parameteriz",
-    "date": "2026-09-27"
+    "title": "Nmap (Network Mapper)",
+    "category": "03-Tools",
+    "content": "Industry-standard network discovery and security auditing tool.\n\n**Essential Commands:**\n```bash\n# Basic scan\nnmap 192.168.1.1\n\n# Service version detection\nnmap -sV 192.168.1.1\n\n# Aggressive scan\nnmap",
+    "date": "2026-09-28"
   },
-  "longest_streak": 80,
-  "total_contributions": 93
+  "longest_streak": 81,
+  "total_contributions": 94
 }
