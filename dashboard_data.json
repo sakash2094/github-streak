@@ -1,5 +1,5 @@
 {
-  "current_streak": 82,
+  "current_streak": 83,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -95,15 +95,16 @@
     "2026-09-26",
     "2026-09-27",
     "2026-09-28",
-    "2026-09-29"
+    "2026-09-29",
+    "2026-09-30"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "[LIVE] undici vulnerable to Denial of Service via unhandled error i",
-    "category": "02-Vulnerabilities",
-    "content": "**Severity:** MEDIUM\n\n**Description:** ## Impact\n\nundici's WebSocket client (including Node.js's bundled `globalThis.WebSocket`) crashes the entire Node.js process when a remote WebSocket peer sends a",
-    "date": "2026-09-29"
+    "title": "Multi-Factor Authentication (MFA)",
+    "category": "01-Security-Tips",
+    "content": "Enable MFA on all critical accounts. Use an authenticator app or hardware key instead of SMS.\n\n**Why MFA Matters:**\n- Adds an extra layer of security\n- Prevents 99.9% of automated attacks\n- Even if pa",
+    "date": "2026-09-30"
   },
-  "longest_streak": 82,
-  "total_contributions": 95
+  "longest_streak": 83,
+  "total_contributions": 96
 }
