@@ -1,5 +1,5 @@
 {
-  "current_streak": 83,
+  "current_streak": 84,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -96,15 +96,16 @@
     "2026-09-27",
     "2026-09-28",
     "2026-09-29",
-    "2026-09-30"
+    "2026-09-30",
+    "2026-10-01"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Multi-Factor Authentication (MFA)",
+    "title": "Password Hygiene Best Practices",
     "category": "01-Security-Tips",
-    "content": "Enable MFA on all critical accounts. Use an authenticator app or hardware key instead of SMS.\n\n**Why MFA Matters:**\n- Adds an extra layer of security\n- Prevents 99.9% of automated attacks\n- Even if pa",
-    "date": "2026-09-30"
+    "content": "Never reuse passwords across different sites. Use a password manager like Bitwarden or 1Password to generate and store complex, unique passwords for every account.\n\n**Best Practices:**\n- Use at least ",
+    "date": "2026-10-01"
   },
-  "longest_streak": 83,
-  "total_contributions": 96
+  "longest_streak": 84,
+  "total_contributions": 97
 }
