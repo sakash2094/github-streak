@@ -1,5 +1,5 @@
 {
-  "current_streak": 85,
+  "current_streak": 86,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -98,15 +98,16 @@
     "2026-09-29",
     "2026-09-30",
     "2026-10-01",
-    "2026-10-02"
+    "2026-10-02",
+    "2026-10-03"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Broken Authentication",
-    "category": "02-Vulnerabilities",
-    "content": "Flaws in authentication allowing attackers to compromise credentials.\n\n**Common Issues:**\n- Weak password policies\n- No rate limiting\n- Session fixation\n- Exposed session IDs\n\n**Prevention:**\n- Implem",
-    "date": "2026-10-02"
+    "title": "Phishing Attack Recognition",
+    "category": "01-Security-Tips",
+    "content": "Always verify sender email addresses and hover over links before clicking.\n\n**Red Flags:**\n- Urgent language (Account Suspended, Immediate Action Required)\n- Spelling and grammar errors\n- Mismatched U",
+    "date": "2026-10-03"
   },
-  "longest_streak": 85,
-  "total_contributions": 98
+  "longest_streak": 86,
+  "total_contributions": 99
 }
