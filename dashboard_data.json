@@ -1,5 +1,5 @@
 {
-  "current_streak": 86,
+  "current_streak": 87,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -99,15 +99,16 @@
     "2026-09-30",
     "2026-10-01",
     "2026-10-02",
-    "2026-10-03"
+    "2026-10-03",
+    "2026-10-04"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Phishing Attack Recognition",
-    "category": "01-Security-Tips",
-    "content": "Always verify sender email addresses and hover over links before clicking.\n\n**Red Flags:**\n- Urgent language (Account Suspended, Immediate Action Required)\n- Spelling and grammar errors\n- Mismatched U",
-    "date": "2026-10-03"
+    "title": "[LIVE] SiYuan Agent Tools SSRF via DNS-Rebinding TOCTOU (Bypass of ",
+    "category": "02-Vulnerabilities",
+    "content": "**Severity:** HIGH\n\n**Description:** # Security Advisory \u2014 SiYuan Agent Tools SSRF via DNS-Rebinding TOCTOU (Bypass of `CheckHostSSRF`)\n\n| Field | Value |\n|---|---|\n| **Disclosed by** | joysinleung (`",
+    "date": "2026-10-04"
   },
-  "longest_streak": 86,
-  "total_contributions": 99
+  "longest_streak": 87,
+  "total_contributions": 100
 }
