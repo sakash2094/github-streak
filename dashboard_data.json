@@ -1,5 +1,5 @@
 {
-  "current_streak": 89,
+  "current_streak": 90,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -102,15 +102,16 @@
     "2026-10-03",
     "2026-10-04",
     "2026-10-05",
-    "2026-10-06"
+    "2026-10-06",
+    "2026-10-07"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Phishing Attack Recognition",
-    "category": "01-Security-Tips",
-    "content": "Always verify sender email addresses and hover over links before clicking.\n\n**Red Flags:**\n- Urgent language (Account Suspended, Immediate Action Required)\n- Spelling and grammar errors\n- Mismatched U",
-    "date": "2026-10-06"
+    "title": "SQL Injection (SQLi)",
+    "category": "02-Vulnerabilities",
+    "content": "Occurs when untrusted user input is concatenated into database queries.\n\n**Impact:**\n- Data theft\n- Data modification\n- Authentication bypass\n- Remote code execution\n\n**Prevention:**\n- Use parameteriz",
+    "date": "2026-10-07"
   },
-  "longest_streak": 89,
-  "total_contributions": 102
+  "longest_streak": 90,
+  "total_contributions": 103
 }
