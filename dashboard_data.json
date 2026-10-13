@@ -1,5 +1,5 @@
 {
-  "current_streak": 95,
+  "current_streak": 96,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -108,15 +108,16 @@
     "2026-10-09",
     "2026-10-10",
     "2026-10-11",
-    "2026-10-12"
+    "2026-10-12",
+    "2026-10-13"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Wireshark",
+    "title": "Nmap (Network Mapper)",
     "category": "03-Tools",
-    "content": "Network protocol analyzer for capturing and browsing network traffic.\n\n**Basic Usage:**\n```bash\n# Capture on interface\nsudo wireshark -i eth0\n\n# Command-line capture\ntshark -i eth0 -w capture.pcap\n\n# ",
-    "date": "2026-10-12"
+    "content": "Industry-standard network discovery and security auditing tool.\n\n**Essential Commands:**\n```bash\n# Basic scan\nnmap 192.168.1.1\n\n# Service version detection\nnmap -sV 192.168.1.1\n\n# Aggressive scan\nnmap",
+    "date": "2026-10-13"
   },
-  "longest_streak": 95,
-  "total_contributions": 108
+  "longest_streak": 96,
+  "total_contributions": 109
 }
