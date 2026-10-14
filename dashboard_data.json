@@ -1,5 +1,5 @@
 {
-  "current_streak": 96,
+  "current_streak": 97,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -109,15 +109,16 @@
     "2026-10-10",
     "2026-10-11",
     "2026-10-12",
-    "2026-10-13"
+    "2026-10-13",
+    "2026-10-14"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Nmap (Network Mapper)",
-    "category": "03-Tools",
-    "content": "Industry-standard network discovery and security auditing tool.\n\n**Essential Commands:**\n```bash\n# Basic scan\nnmap 192.168.1.1\n\n# Service version detection\nnmap -sV 192.168.1.1\n\n# Aggressive scan\nnmap",
-    "date": "2026-10-13"
+    "title": "[LIVE] Microsoft Security Advisory CVE-2026-70007 - .NET and Visual",
+    "category": "02-Vulnerabilities",
+    "content": "**Severity:** HIGH\n\n**Description:** ## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in Microsoft.WindowsDesktop.App.Runtime (WPF). Thi",
+    "date": "2026-10-14"
   },
-  "longest_streak": 96,
-  "total_contributions": 109
+  "longest_streak": 97,
+  "total_contributions": 110
 }
