@@ -1,5 +1,5 @@
 {
-  "current_streak": 98,
+  "current_streak": 99,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -111,15 +111,16 @@
     "2026-10-12",
     "2026-10-13",
     "2026-10-14",
-    "2026-10-15"
+    "2026-10-15",
+    "2026-10-16"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Burp Suite",
-    "category": "03-Tools",
-    "content": "Integrated platform for web application security testing.\n\n**Key Features:**\n- Intercepting proxy\n- Vulnerability scanner\n- Repeater for manual testing\n- Intruder for automated attacks\n\n**Getting Star",
-    "date": "2026-10-15"
+    "title": "Cross-Site Scripting (XSS)",
+    "category": "02-Vulnerabilities",
+    "content": "Happens when untrusted data is included in web pages without proper escaping.\n\n**Types:**\n1. Reflected XSS - Malicious script reflected in error messages\n2. Stored XSS - Script stored in database\n3. D",
+    "date": "2026-10-16"
   },
-  "longest_streak": 98,
-  "total_contributions": 111
+  "longest_streak": 99,
+  "total_contributions": 112
 }
