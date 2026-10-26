@@ -1,5 +1,5 @@
 {
-  "current_streak": 108,
+  "current_streak": 109,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -121,15 +121,16 @@
     "2026-10-22",
     "2026-10-23",
     "2026-10-24",
-    "2026-10-25"
+    "2026-10-25",
+    "2026-10-26"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Phishing Attack Recognition",
-    "category": "01-Security-Tips",
-    "content": "Always verify sender email addresses and hover over links before clicking.\n\n**Red Flags:**\n- Urgent language (Account Suspended, Immediate Action Required)\n- Spelling and grammar errors\n- Mismatched U",
-    "date": "2026-10-25"
+    "title": "Cross-Site Scripting (XSS)",
+    "category": "02-Vulnerabilities",
+    "content": "Happens when untrusted data is included in web pages without proper escaping.\n\n**Types:**\n1. Reflected XSS - Malicious script reflected in error messages\n2. Stored XSS - Script stored in database\n3. D",
+    "date": "2026-10-26"
   },
-  "longest_streak": 108,
-  "total_contributions": 121
+  "longest_streak": 109,
+  "total_contributions": 122
 }
