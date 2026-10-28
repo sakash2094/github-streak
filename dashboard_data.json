@@ -1,5 +1,5 @@
 {
-  "current_streak": 110,
+  "current_streak": 111,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -123,15 +123,16 @@
     "2026-10-24",
     "2026-10-25",
     "2026-10-26",
-    "2026-10-27"
+    "2026-10-27",
+    "2026-10-28"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "[LIVE] Authlib: ID token can disable its own nonce validation via t",
-    "category": "02-Vulnerabilities",
-    "content": "**Severity:** MEDIUM\n\n**Description:** ### Summary\n\n`OpenIDMixin.parse_id_token()` reads the `nonce_supported` claim from the ID token it is validating. When that claim is boolean `false`, the expecte",
-    "date": "2026-10-27"
+    "title": "Password Hygiene Best Practices",
+    "category": "01-Security-Tips",
+    "content": "Never reuse passwords across different sites. Use a password manager like Bitwarden or 1Password to generate and store complex, unique passwords for every account.\n\n**Best Practices:**\n- Use at least ",
+    "date": "2026-10-28"
   },
-  "longest_streak": 110,
-  "total_contributions": 123
+  "longest_streak": 111,
+  "total_contributions": 124
 }
