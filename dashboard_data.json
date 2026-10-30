@@ -1,5 +1,5 @@
 {
-  "current_streak": 112,
+  "current_streak": 113,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -125,15 +125,16 @@
     "2026-10-26",
     "2026-10-27",
     "2026-10-28",
-    "2026-10-29"
+    "2026-10-29",
+    "2026-10-30"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "[LIVE] Daptin: ParseAcceptLanguage `_` separator bypass enables >25",
+    "title": "SQL Injection (SQLi)",
     "category": "02-Vulnerabilities",
-    "content": "**Severity:** HIGH\n\n**Description:** ### Summary\n\nDaptin's `LanguageMiddleware` (registered as a global gin middleware) calls `golang.org/x/text/language.ParseAcceptLanguage` on the raw `Accept-Langua",
-    "date": "2026-10-29"
+    "content": "Occurs when untrusted user input is concatenated into database queries.\n\n**Impact:**\n- Data theft\n- Data modification\n- Authentication bypass\n- Remote code execution\n\n**Prevention:**\n- Use parameteriz",
+    "date": "2026-10-30"
   },
-  "longest_streak": 112,
-  "total_contributions": 125
+  "longest_streak": 113,
+  "total_contributions": 126
 }
