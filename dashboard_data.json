@@ -1,5 +1,5 @@
 {
-  "current_streak": 114,
+  "current_streak": 115,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -127,15 +127,16 @@
     "2026-10-28",
     "2026-10-29",
     "2026-10-30",
-    "2026-10-31"
+    "2026-10-31",
+    "2026-11-01"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Password Hygiene Best Practices",
+    "title": "Phishing Attack Recognition",
     "category": "01-Security-Tips",
-    "content": "Never reuse passwords across different sites. Use a password manager like Bitwarden or 1Password to generate and store complex, unique passwords for every account.\n\n**Best Practices:**\n- Use at least ",
-    "date": "2026-10-31"
+    "content": "Always verify sender email addresses and hover over links before clicking.\n\n**Red Flags:**\n- Urgent language (Account Suspended, Immediate Action Required)\n- Spelling and grammar errors\n- Mismatched U",
+    "date": "2026-11-01"
   },
-  "longest_streak": 114,
-  "total_contributions": 127
+  "longest_streak": 115,
+  "total_contributions": 128
 }
