@@ -1,5 +1,5 @@
 {
-  "current_streak": 116,
+  "current_streak": 117,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -129,15 +129,16 @@
     "2026-10-30",
     "2026-10-31",
     "2026-11-01",
-    "2026-11-02"
+    "2026-11-02",
+    "2026-11-03"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Burp Suite",
-    "category": "03-Tools",
-    "content": "Integrated platform for web application security testing.\n\n**Key Features:**\n- Intercepting proxy\n- Vulnerability scanner\n- Repeater for manual testing\n- Intruder for automated attacks\n\n**Getting Star",
-    "date": "2026-11-02"
+    "title": "[LIVE] Netfoil doesn't decrement TTL",
+    "category": "02-Vulnerabilities",
+    "content": "**Severity:** MEDIUM\n\n**Description:** ### Summary\nTTL was not decremented, so stale records would continue to be served.\n\n**Source:** GitHub Security Advisories\n**CVE:** None",
+    "date": "2026-11-03"
   },
-  "longest_streak": 116,
-  "total_contributions": 129
+  "longest_streak": 117,
+  "total_contributions": 130
 }
