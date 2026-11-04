@@ -1,5 +1,5 @@
 {
-  "current_streak": 117,
+  "current_streak": 118,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -130,15 +130,16 @@
     "2026-10-31",
     "2026-11-01",
     "2026-11-02",
-    "2026-11-03"
+    "2026-11-03",
+    "2026-11-04"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "[LIVE] Netfoil doesn't decrement TTL",
+    "title": "[LIVE] odf-kit: HTML injection leading to XSS in odtToHtml() and od",
     "category": "02-Vulnerabilities",
-    "content": "**Severity:** MEDIUM\n\n**Description:** ### Summary\nTTL was not decremented, so stale records would continue to be served.\n\n**Source:** GitHub Security Advisories\n**CVE:** None",
-    "date": "2026-11-03"
+    "content": "**Severity:** MEDIUM\n\n**Description:** ### Summary\n\nODF style attribute values are interpolated into `style=\"...\"` attributes without HTML-escaping in **both** of odf-kit's to-HTML renderers (`odtToHt",
+    "date": "2026-11-04"
   },
-  "longest_streak": 117,
-  "total_contributions": 130
+  "longest_streak": 118,
+  "total_contributions": 131
 }
