@@ -1,5 +1,5 @@
 {
-  "current_streak": 120,
+  "current_streak": 121,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -133,15 +133,16 @@
     "2026-11-03",
     "2026-11-04",
     "2026-11-05",
-    "2026-11-06"
+    "2026-11-06",
+    "2026-11-07"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "[LIVE] filecoin-pin: Unbounded DAG pinning can exhaust server resou",
+    "title": "Cross-Site Scripting (XSS)",
     "category": "02-Vulnerabilities",
-    "content": "**Severity:** MEDIUM\n\n**Description:** ## Summary\n\nThe IPFS Pinning Service API implementation accepts a caller-controlled CID through `POST /pins`, queues background processing, and then recursively ",
-    "date": "2026-11-06"
+    "content": "Happens when untrusted data is included in web pages without proper escaping.\n\n**Types:**\n1. Reflected XSS - Malicious script reflected in error messages\n2. Stored XSS - Script stored in database\n3. D",
+    "date": "2026-11-07"
   },
-  "longest_streak": 120,
-  "total_contributions": 133
+  "longest_streak": 121,
+  "total_contributions": 134
 }
