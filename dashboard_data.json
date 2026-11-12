@@ -1,5 +1,5 @@
 {
-  "current_streak": 125,
+  "current_streak": 126,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -138,15 +138,16 @@
     "2026-11-08",
     "2026-11-09",
     "2026-11-10",
-    "2026-11-11"
+    "2026-11-11",
+    "2026-11-12"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Password Hygiene Best Practices",
-    "category": "01-Security-Tips",
-    "content": "Never reuse passwords across different sites. Use a password manager like Bitwarden or 1Password to generate and store complex, unique passwords for every account.\n\n**Best Practices:**\n- Use at least ",
-    "date": "2026-11-11"
+    "title": "Wireshark",
+    "category": "03-Tools",
+    "content": "Network protocol analyzer for capturing and browsing network traffic.\n\n**Basic Usage:**\n```bash\n# Capture on interface\nsudo wireshark -i eth0\n\n# Command-line capture\ntshark -i eth0 -w capture.pcap\n\n# ",
+    "date": "2026-11-12"
   },
-  "longest_streak": 125,
-  "total_contributions": 138
+  "longest_streak": 126,
+  "total_contributions": 139
 }
