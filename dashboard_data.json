@@ -1,5 +1,5 @@
 {
-  "current_streak": 128,
+  "current_streak": 129,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -141,15 +141,16 @@
     "2026-11-11",
     "2026-11-12",
     "2026-11-13",
-    "2026-11-14"
+    "2026-11-14",
+    "2026-11-15"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Burp Suite",
+    "title": "Wireshark",
     "category": "03-Tools",
-    "content": "Integrated platform for web application security testing.\n\n**Key Features:**\n- Intercepting proxy\n- Vulnerability scanner\n- Repeater for manual testing\n- Intruder for automated attacks\n\n**Getting Star",
-    "date": "2026-11-14"
+    "content": "Network protocol analyzer for capturing and browsing network traffic.\n\n**Basic Usage:**\n```bash\n# Capture on interface\nsudo wireshark -i eth0\n\n# Command-line capture\ntshark -i eth0 -w capture.pcap\n\n# ",
+    "date": "2026-11-15"
   },
-  "longest_streak": 128,
-  "total_contributions": 141
+  "longest_streak": 129,
+  "total_contributions": 142
 }
