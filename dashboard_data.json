@@ -1,5 +1,5 @@
 {
-  "current_streak": 133,
+  "current_streak": 134,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -146,15 +146,16 @@
     "2026-11-16",
     "2026-11-17",
     "2026-11-18",
-    "2026-11-19"
+    "2026-11-19",
+    "2026-11-20"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Phishing Attack Recognition",
-    "category": "01-Security-Tips",
-    "content": "Always verify sender email addresses and hover over links before clicking.\n\n**Red Flags:**\n- Urgent language (Account Suspended, Immediate Action Required)\n- Spelling and grammar errors\n- Mismatched U",
-    "date": "2026-11-19"
+    "title": "[LIVE] uu_env incorrectly rejects backslashes within single-quoted ",
+    "category": "02-Vulnerabilities",
+    "content": "**Severity:** LOW\n\n**Description:** In `env -S`, GNU keeps backslashes literal inside single quotes (except `\\\\` and `\\'`); uutils errors on sequences like `\\a`. This is the backslash-handling issue o",
+    "date": "2026-11-20"
   },
-  "longest_streak": 133,
-  "total_contributions": 146
+  "longest_streak": 134,
+  "total_contributions": 147
 }
