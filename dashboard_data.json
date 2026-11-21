@@ -1,5 +1,5 @@
 {
-  "current_streak": 134,
+  "current_streak": 135,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -147,15 +147,16 @@
     "2026-11-17",
     "2026-11-18",
     "2026-11-19",
-    "2026-11-20"
+    "2026-11-20",
+    "2026-11-21"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "[LIVE] uu_env incorrectly rejects backslashes within single-quoted ",
-    "category": "02-Vulnerabilities",
-    "content": "**Severity:** LOW\n\n**Description:** In `env -S`, GNU keeps backslashes literal inside single quotes (except `\\\\` and `\\'`); uutils errors on sequences like `\\a`. This is the backslash-handling issue o",
-    "date": "2026-11-20"
+    "title": "Burp Suite",
+    "category": "03-Tools",
+    "content": "Integrated platform for web application security testing.\n\n**Key Features:**\n- Intercepting proxy\n- Vulnerability scanner\n- Repeater for manual testing\n- Intruder for automated attacks\n\n**Getting Star",
+    "date": "2026-11-21"
   },
-  "longest_streak": 134,
-  "total_contributions": 147
+  "longest_streak": 135,
+  "total_contributions": 148
 }
