@@ -1,5 +1,5 @@
 {
-  "current_streak": 137,
+  "current_streak": 138,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -150,15 +150,16 @@
     "2026-11-20",
     "2026-11-21",
     "2026-11-22",
-    "2026-11-23"
+    "2026-11-23",
+    "2026-11-24"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Phishing Attack Recognition",
-    "category": "01-Security-Tips",
-    "content": "Always verify sender email addresses and hover over links before clicking.\n\n**Red Flags:**\n- Urgent language (Account Suspended, Immediate Action Required)\n- Spelling and grammar errors\n- Mismatched U",
-    "date": "2026-11-23"
+    "title": "[LIVE] AVideo API vulnerable to OS command injection through an une",
+    "category": "02-Vulnerabilities",
+    "content": "**Severity:** HIGH\n\n**Description:** ### Summary\n\nThe helper `listFFmpegProcesses($keyword)` in `plugin/API/standAlone/functions.php` builds a shell pipeline by interpolating `$keyword` inside single ",
+    "date": "2026-11-24"
   },
-  "longest_streak": 137,
-  "total_contributions": 150
+  "longest_streak": 138,
+  "total_contributions": 151
 }
