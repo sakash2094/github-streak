@@ -1,5 +1,5 @@
 {
-  "current_streak": 140,
+  "current_streak": 141,
   "dates": [
     "2026-06-26",
     "2026-06-27",
@@ -153,15 +153,16 @@
     "2026-11-23",
     "2026-11-24",
     "2026-11-25",
-    "2026-11-26"
+    "2026-11-26",
+    "2026-11-27"
   ],
   "last_updated": "2026-06-27T11:53:30.119662",
   "latest_content": {
-    "title": "Broken Authentication",
+    "title": "Cross-Site Scripting (XSS)",
     "category": "02-Vulnerabilities",
-    "content": "Flaws in authentication allowing attackers to compromise credentials.\n\n**Common Issues:**\n- Weak password policies\n- No rate limiting\n- Session fixation\n- Exposed session IDs\n\n**Prevention:**\n- Implem",
-    "date": "2026-11-26"
+    "content": "Happens when untrusted data is included in web pages without proper escaping.\n\n**Types:**\n1. Reflected XSS - Malicious script reflected in error messages\n2. Stored XSS - Script stored in database\n3. D",
+    "date": "2026-11-27"
   },
-  "longest_streak": 140,
-  "total_contributions": 153
+  "longest_streak": 141,
+  "total_contributions": 154
 }
